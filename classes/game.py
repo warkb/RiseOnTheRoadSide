@@ -1,5 +1,8 @@
 import pygame
 from pygame.locals import *
+import classes.player
+from classes.player import Player
+from sys import exit
 
 class Game():
 	"""
@@ -11,7 +14,7 @@ class Game():
 		self.WIDTHSCREEN = 800
 		self.MAINCOLOR = (147, 255, 71)
 
-		self.objects = {}
+		self.objects = {'player': [Player(400, 300)]}
 		self.run()
 
 	def drawWorld(self):
@@ -21,7 +24,9 @@ class Game():
 		По идее, она должна выполняться отдельным
 		потоком, или с помощью модуля acyncio"""
 		self.screen.fill(self.MAINCOLOR)
-		pass
+		for key in self.objects:
+			for obj in self.objects[key]:
+				obj.draw(self.screen)
 		pygame.display.update()
 
 	def moveWorld(self):
@@ -37,9 +42,9 @@ class Game():
 			self.HEIGHTSCREEN), 0, 32)
 		self.running = True
 		while self.running:
-			self.drawWorld()
+			self.drawWorld()#<- пока тут, потом в поток занесу
 			for event in pygame.event.get():
 				if event.type == QUIT:
 					#выходим по нажатию на крестик
 					self.running = False
-
+		exit()
