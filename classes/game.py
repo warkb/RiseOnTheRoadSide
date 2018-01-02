@@ -53,17 +53,21 @@ class Game():
 			self.drawWorld()#<- пока тут, потом в поток занесу
 			pressedKeys=pygame.key.get_pressed()
 			#вперед
-			if pressedKeys[K_UP] or pressedKeys[K_w]:
+			if ((pressedKeys[K_UP] or pressedKeys[K_w]) and 
+				not (pressedKeys[K_DOWN] or pressedKeys[K_s])):
 				self.player.goUp()
 			#наэад
-			if pressedKeys[K_DOWN] or pressedKeys[K_s]:
+			elif ((pressedKeys[K_DOWN] or pressedKeys[K_s]) and 
+				not (pressedKeys[K_UP] or pressedKeys[K_w])):
 				self.player.goDown()
 			#направо
-			if pressedKeys[K_RIGHT] or pressedKeys[K_d]:
+			if ((pressedKeys[K_RIGHT] or pressedKeys[K_d]) and 
+				not(pressedKeys[K_LEFT] or pressedKeys[K_a])):
 				self.player.goRight()
 
 			#налево
-			if pressedKeys[K_LEFT] or pressedKeys[K_a]:
+			if ((pressedKeys[K_LEFT] or pressedKeys[K_a]) and 
+				not (pressedKeys[K_RIGHT] or pressedKeys[K_d])):
 				self.player.goLeft()
 
 			#выход из игры

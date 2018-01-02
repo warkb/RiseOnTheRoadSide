@@ -1,7 +1,7 @@
 import classes.renderedObj
 from classes.renderedObj import RenderedObject, GVector
 import pygame
-from math import sin, cos
+from math import sin, cos, atan2, pi
 from classes.appFunctions import hexToTuple
 
 class Player(RenderedObject):
@@ -15,7 +15,6 @@ class Player(RenderedObject):
 		self.frictionalCoefficient = 7
 		#константы, отвечающие за движение по нажатию клавиши
 		self.pushVelocity = 400#скорость, получаемая при нажатии кнопки вперед
-
 	def goUp(self):
 		"""
 		Вызывается при нажатии кнопки движения вперед
@@ -37,16 +36,18 @@ class Player(RenderedObject):
 		"""
 		self.initVel.x = -self.pushVelocity
 	def draw(self, screen):
+		viewPoint = (self.initPoint+(GVector(sin(self.angle)*self.rad, 
+				-cos(self.angle)*self.rad))).get()
 		pygame.draw.circle(screen, self.color, (self.initPoint).get(), self.rad, 3)
-		pygame.draw.aaline(screen, self.color, self.initPoint.get(), 
-			(self.initPoint+(GVector(sin(self.angle), 
-				-cos(self.angle))*self.rad)).get(), 3)
-
+		pygame.draw.line(screen, self.color, self.initPoint.get(), 
+			viewPoint, 3)
 	def move(self, dt):
 		"""
 		запускается каждую итерацию, двигает героя,
-		менятет его скорость
+		менятет его скорость, а также угол
 		"""
+		x, y = pygame.mouse.get_pos()
+		self.angle = atan2(y - self.initPoint.y, x - self.initPoint.x) + pi/2
 		self.initVel -= self.initVel * self.frictionalCoefficient * dt
 		self.initPoint += self.initVel * dt
 		
