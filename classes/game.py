@@ -4,6 +4,7 @@ import classes.player
 from classes.player import Player
 from sys import exit
 from classes.appFunctions import hexToTuple
+from classes.pod import Pod
 
 class Game():
 	"""
@@ -13,11 +14,20 @@ class Game():
 	def __init__(self):
 		self.WIDTHSCREEN = 1024
 		self.HEIGHTSCREEN = 700
+
+		#переменные фокуса
+		self.focusX = 0
+		self.focusY = 0
+
+		#зазор для фокуса
+		self.focusMargin = int(self.HEIGHTSCREEN / 4)
+
 		self.MAINCOLOR = hexToTuple('B6F788')
 		self.fps = 60
 		self.fpsClock = pygame.time.Clock()
 		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2)
-		self.objects = {'player': [self.player]}
+		self.pods = [Pod(0, 0, 100, 100)]
+		self.objects = {'player': self.player, 'pods': self.pods}
 		self.run()
 
 	def drawWorld(self):
@@ -27,9 +37,12 @@ class Game():
 		По идее, она должна выполняться отдельным
 		потоком, или с помощью модуля acyncio"""
 		self.screen.fill(self.MAINCOLOR)
-		for key in self.objects:
-			for obj in self.objects[key]:
-				obj.draw(self.screen)
+		#рисуем подложку
+		fTuple = (self.focusX, self.focusY)
+		for obj in self.objects['pods']:
+			obj.draw(self.screen, fTuple)
+		#рисуем игрока
+		self.player.draw(self.screen, fTuple)
 		pygame.display.update()
 
 	def moveWorld(self, dt):
@@ -37,9 +50,7 @@ class Game():
 		Все действия, связаанные с изменением параметров мира
 		делаются в этой функции. Так же, выполняется с помощью
 		потоков или asyncio"""
-		for key in self.objects:
-			for obj in self.objects[key]:
-				obj.move(dt)
+		self.player.move(dt)
 
 	def run(self):
 		pygame.init()
@@ -50,6 +61,17 @@ class Game():
 		#обрабатываем события
 		while self.running:
 			self.moveWorld(dt)
+			#пересчитываем фокус
+			px, py = self.player.initPoint.get()
+			if px < self.focusX + self.focusMargin:
+				self.focusX = px - self.focusMargin
+			if px > self.focusX + self.WIDTHSCREEN - self.focusMargin:
+				self.focusX = px - self.WIDTHSCREEN + self.focusMargin
+			if py < self.focusY + self.focusMargin:
+				self.focusY = py - self.focusMargin
+			if py > self.focusY + self.HEIGHTSCREEN - self.focusMargin:
+				self.focusY = py - self.HEIGHTSCREEN + self.focusMargin
+
 			self.drawWorld()#<- пока тут, потом в поток занесу
 			pressedKeys=pygame.key.get_pressed()
 			#вперед

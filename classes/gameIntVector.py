@@ -6,6 +6,8 @@ class GVector():
 		self.x = int(x)
 		self.y = int(y)
 
+	def __str__(self):
+		return 'Эт короче экзампляр GVector c координатами ({0},{1})'.format(self.x, self.y)
 	def __add__(self, v2):
 		return GVector(self.x + v2.x, self.y + v2.y)
 

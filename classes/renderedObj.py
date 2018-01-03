@@ -9,6 +9,11 @@ class RenderedObject():
 		self.initPoint = initPoint
 		self.initVel = initVel
 
+		self.focus = GVector()
+
+	def draw(self, screen, focus):
+		self.focus.x, self.focus.y = focus
+
 	def move(self, dt):
 		pass
 		
