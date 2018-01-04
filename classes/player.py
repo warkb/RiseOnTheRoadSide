@@ -12,7 +12,7 @@ class Player(RenderedObject):
 		self.rad = 30
 		self.angle = 0
 		self.color = hexToTuple('F48C16')
-		self.frictionalCoefficient = 7
+		self.frictionalCoefficient = 13
 		#константы, отвечающие за движение по нажатию клавиши
 		self.pushVelocity = 400#скорость, получаемая при нажатии кнопки вперед
 

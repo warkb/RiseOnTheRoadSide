@@ -26,8 +26,13 @@ class Game():
 		self.fps = 60
 		self.fpsClock = pygame.time.Clock()
 		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2)
-		self.pods = [Pod(0, 0, 100, 100)]
-		self.objects = {'player': self.player, 'pods': self.pods}
+		#добавляем подложки
+		self.pods = []
+		for i in [-1, 0, 1]:
+			for j in [0, -1, 1]:
+				self.pods.append(Pod(i * self.WIDTHSCREEN, j * self.HEIGHTSCREEN,
+				 self.WIDTHSCREEN, self.HEIGHTSCREEN))
+		self.objects = {'player': [self.player], 'pods': self.pods}
 		self.run()
 
 	def drawWorld(self):
@@ -50,7 +55,10 @@ class Game():
 		Все действия, связаанные с изменением параметров мира
 		делаются в этой функции. Так же, выполняется с помощью
 		потоков или asyncio"""
-		self.player.move(dt)
+		#self.player.move(dt)
+		for key in self.objects:
+			for obj in self.objects[key]:
+				obj.move(dt)
 
 	def run(self):
 		pygame.init()
