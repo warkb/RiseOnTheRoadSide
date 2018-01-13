@@ -5,6 +5,7 @@ from classes.player import Player
 from sys import exit
 from classes.appFunctions import hexToTuple
 from classes.pod import Pod
+from classes.commonConsts import WIDTHSCREEN, HEIGHTSCREEN
 
 class Game():
 	"""
@@ -12,8 +13,8 @@ class Game():
 	Это экземпляр класса, в конструкторе которого будет запускаться игра
 	"""
 	def __init__(self):
-		self.WIDTHSCREEN = 1024
-		self.HEIGHTSCREEN = 700
+		self.WIDTHSCREEN = WIDTHSCREEN
+		self.HEIGHTSCREEN = HEIGHTSCREEN
 
 		#переменные фокуса
 		self.focusX = 0
@@ -37,7 +38,7 @@ class Game():
 
 	def drawWorld(self):
 		"""
-		Вот эта вот замечательноя функция 
+		Вот эта вот замечательная функция 
 		будет отрисовывать мир.
 		По идее, она должна выполняться отдельным
 		потоком, или с помощью модуля acyncio"""
