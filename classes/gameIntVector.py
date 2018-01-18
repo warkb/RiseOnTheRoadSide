@@ -16,6 +16,23 @@ class GVector():
 
 	def __mul__(self, m):
 		return GVector(int(self.x * m), int(self.y * m))
+
+	def __getitem__(self, key):
+		if key == 0:
+			return self.x
+		elif key == 1:
+			return self.y
+		else:
+			raise BaseException('Нету больше ничего')
+
+	def __setitem__(self, key, value):
+		if key == 0:
+			self.x = int(value)
+		elif key == 1:
+			self.y = int(value)
+		else:
+			raise BaseException('Нету больше ничего')
+
 	def get(self):
 		return (self.x, self.y)
 		

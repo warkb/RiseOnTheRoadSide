@@ -6,7 +6,7 @@ from classes.commonConsts import artefactsType, WIDTHSCREEN, HEIGHTSCREEN
 
 class Artefact(RenderedObject):
 	"""Артефакты, которые можно собирать в инвентарь"""
-	def __init__(self, x, y, artType='grayball'):
+	def __init__(self, x, y, focus, artType='grayball'):
 		RenderedObject.__init__(GVector(x, y))
 
 		if not artType in artefactsType:
@@ -15,8 +15,8 @@ class Artefact(RenderedObject):
 	def move(self, dt):
 		pass
 
-	def draw(self, screen, focus):
-		self.focus.x, self.focus.y = focus
+	def draw(self, screen):
+		pass
 
 	def relocate(self, focus):
 		"""

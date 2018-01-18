@@ -10,10 +10,10 @@ class Pod(pygame.surface.Surface, RenderedObject):
 	Подложка под героем с травой
 	которая перемещается так, чтобы всегда быть под героем
 	"""
-	def __init__(self, x, y, w, h):
+	def __init__(self, x, y, w, h, focus):
 		pygame.surface.Surface.__init__(self, (int(w), int(h)), flags=SRCALPHA,
 			depth=32)
-		RenderedObject.__init__(self, GVector(x, y))
+		RenderedObject.__init__(self, GVector(x, y), focus=focus)
 		self.width = w
 		self.height = h
 		self.grassWidth = 20
@@ -35,8 +35,7 @@ class Pod(pygame.surface.Surface, RenderedObject):
 				(x, y))
 
 		
-	def draw(self, screen, focus):
-		RenderedObject.draw(self, screen, focus)
+	def draw(self, screen):
 		fvx, fvy = (self.focus - self.initPoint).get()
 		if fvx > self.width:
 			self.initPoint.x += 2 * self.width

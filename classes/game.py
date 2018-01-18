@@ -6,6 +6,7 @@ from sys import exit
 from classes.appFunctions import hexToTuple
 from classes.pod import Pod
 from classes.commonConsts import WIDTHSCREEN, HEIGHTSCREEN
+from classes.gameIntVector import GVector
 
 class Game():
 	"""
@@ -17,8 +18,7 @@ class Game():
 		self.HEIGHTSCREEN = HEIGHTSCREEN
 
 		#переменные фокуса
-		self.focusX = 0
-		self.focusY = 0
+		self.focus = GVector()
 
 		#зазор для фокуса
 		self.focusMargin = int(self.HEIGHTSCREEN / 4)
@@ -26,13 +26,13 @@ class Game():
 		self.MAINCOLOR = hexToTuple('B6F788')
 		self.fps = 60
 		self.fpsClock = pygame.time.Clock()
-		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2)
+		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2, self.focus)
 		#добавляем подложки
 		self.pods = []
 		for i in [-1, 0, 1]:
 			for j in [0, -1, 1]:
 				self.pods.append(Pod(i * self.WIDTHSCREEN, j * self.HEIGHTSCREEN,
-				 self.WIDTHSCREEN, self.HEIGHTSCREEN))
+				 self.WIDTHSCREEN, self.HEIGHTSCREEN, self.focus))
 		self.objects = {'player': [self.player], 'pods': self.pods}
 		self.run()
 
@@ -44,11 +44,10 @@ class Game():
 		потоком, или с помощью модуля acyncio"""
 		self.screen.fill(self.MAINCOLOR)
 		#рисуем подложку
-		fTuple = (self.focusX, self.focusY)
 		for obj in self.objects['pods']:
-			obj.draw(self.screen, fTuple)
+			obj.draw(self.screen)
 		#рисуем игрока
-		self.player.draw(self.screen, fTuple)
+		self.player.draw(self.screen)
 		pygame.display.update()
 
 	def moveWorld(self, dt):
@@ -72,14 +71,14 @@ class Game():
 			self.moveWorld(dt)
 			#пересчитываем фокус
 			px, py = self.player.initPoint.get()
-			if px < self.focusX + self.focusMargin:
-				self.focusX = px - self.focusMargin
-			if px > self.focusX + self.WIDTHSCREEN - self.focusMargin:
-				self.focusX = px - self.WIDTHSCREEN + self.focusMargin
-			if py < self.focusY + self.focusMargin:
-				self.focusY = py - self.focusMargin
-			if py > self.focusY + self.HEIGHTSCREEN - self.focusMargin:
-				self.focusY = py - self.HEIGHTSCREEN + self.focusMargin
+			if px < self.focus[0] + self.focusMargin:
+				self.focus[0] = px - self.focusMargin
+			if px > self.focus[0] + self.WIDTHSCREEN - self.focusMargin:
+				self.focus[0] = px - self.WIDTHSCREEN + self.focusMargin
+			if py < self.focus[1] + self.focusMargin:
+				self.focus[1] = py - self.focusMargin
+			if py > self.focus[1] + self.HEIGHTSCREEN - self.focusMargin:
+				self.focus[1] = py - self.HEIGHTSCREEN + self.focusMargin
 
 			self.drawWorld()#<- пока тут, потом в поток занесу
 			pressedKeys=pygame.key.get_pressed()

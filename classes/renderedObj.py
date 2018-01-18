@@ -1,19 +1,20 @@
 import classes.gameIntVector
 from classes.gameIntVector import GVector
+from abc import abstractmethod
 
 class RenderedObject():
 	"""
     Этот класс - предок последующих
 	"""
-	def __init__(self, initPoint, initVel=GVector(0,0)):
+	def __init__(self, initPoint, focus):
 		self.initPoint = initPoint
-		self.initVel = initVel
+		self.focus = focus
 
-		self.focus = GVector()
-
-	def draw(self, screen, focus):
+	@abstractmethod
+	def draw(self, screen):
 		self.focus.x, self.focus.y = focus
 
+	@abstractmethod
 	def move(self, dt):
 		pass
 		

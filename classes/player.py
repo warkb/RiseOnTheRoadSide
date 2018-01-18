@@ -6,9 +6,10 @@ from classes.appFunctions import hexToTuple
 
 class Player(RenderedObject):
 	"""docstring for Player"""
-	def __init__(self, x, y):
+	def __init__(self, x, y, focus):
 		initPlayerVelocity = GVector(0, 0)
-		RenderedObject.__init__(self, GVector(x,y), initPlayerVelocity)
+		RenderedObject.__init__(self, GVector(x,y), focus)
+		self.initVel = GVector()
 		self.rad = 30
 		self.angle = 0
 		self.color = hexToTuple('F48C16')
@@ -36,8 +37,7 @@ class Player(RenderedObject):
 		Вызывается при нажатии кнопки движения налево
 		"""
 		self.initVel.x = -self.pushVelocity
-	def draw(self, screen, focus):
-		RenderedObject.draw(self, screen, focus)
+	def draw(self, screen):
 		viewPoint = (self.initPoint+(GVector(sin(self.angle)*self.rad, 
 				-cos(self.angle)*self.rad))-self.focus).get()
 		pygame.draw.circle(screen, self.color, (self.initPoint-self.focus).get(),
@@ -50,8 +50,8 @@ class Player(RenderedObject):
 		менятет его скорость, а также угол
 		"""
 		x, y = pygame.mouse.get_pos()
-		x += self.focus.x
-		y += self.focus.y
+		x += self.focus[0]
+		y += self.focus[1]
 		self.angle = atan2(y - self.initPoint.y, x - self.initPoint.x) + pi/2
 		self.initVel -= self.initVel * self.frictionalCoefficient * dt
 		self.initPoint += self.initVel * dt
