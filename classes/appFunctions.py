@@ -1,3 +1,12 @@
+from random import random
+
+def generateRandomInJaggedArea(a, b, c, d):
+	"""Генерирует рандомное число в области [a, b] U [c, d]"""
+	randomNum = random() * ((b - a) + (d - c)) + a
+	if randomNum > b:
+		randomNum += (c - b)
+	return randomNum
+
 def hexToTuple(hexStr):
 	"""
 	берет строку в hex формате(цвет)

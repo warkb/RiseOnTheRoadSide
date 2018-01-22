@@ -3,15 +3,17 @@ from pygame.locals import *
 import classes.player
 from classes.player import Player
 from sys import exit
+from classes.artefact import Artefact
 from classes.appFunctions import hexToTuple
 from classes.pod import Pod
-from classes.commonConsts import WIDTHSCREEN, HEIGHTSCREEN
+from classes.commonConsts import (WIDTHSCREEN, HEIGHTSCREEN, artefactQuantitiy)
 from classes.gameIntVector import GVector
 
 class Game():
 	"""
-	TODO: Сделать так, чтобы pygame и прочие запускались из папки lib
 	Это экземпляр класса, в конструкторе которого будет запускаться игра
+	TODO: Сделать так, чтобы pygame и прочие запускались из папки lib
+	*Есть ещё такая идея, списки объектов запихивать не в list, а в set
 	"""
 	def __init__(self):
 		self.WIDTHSCREEN = WIDTHSCREEN
@@ -33,8 +35,21 @@ class Game():
 			for j in [0, -1, 1]:
 				self.pods.append(Pod(i * self.WIDTHSCREEN, j * self.HEIGHTSCREEN,
 				 self.WIDTHSCREEN, self.HEIGHTSCREEN, self.focus))
-		self.objects = {'player': [self.player], 'pods': self.pods}
+		self.addArtefacts()
+		self.objects = {'player': [self.player], 'pods': self.pods, 
+		'artefacts': self.artefacts}
 		self.run()
+
+	def addArtefacts(self):
+		"""
+		Добавляет на игровое поле артефакты
+		"""
+		self.artefacts = []
+		for _ in range(artefactQuantitiy):
+			artefact = Artefact(focus=self.focus)
+			artefact.relocate()
+			self.artefacts.append(artefact)
+
 
 	def drawWorld(self):
 		"""
@@ -45,6 +60,9 @@ class Game():
 		self.screen.fill(self.MAINCOLOR)
 		#рисуем подложку
 		for obj in self.objects['pods']:
+			obj.draw(self.screen)
+		#рисуем артефакты
+		for obj in self.artefacts:
 			obj.draw(self.screen)
 		#рисуем игрока
 		self.player.draw(self.screen)
