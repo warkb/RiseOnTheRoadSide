@@ -2,11 +2,13 @@ import pygame
 from pygame.locals import *
 import classes.player
 from classes.player import Player
+from classes.abstractClasses import PickableObject
 from sys import exit
 from classes.artefact import Artefact
 from classes.appFunctions import hexToTuple
 from classes.pod import Pod
-from classes.commonConsts import (WIDTHSCREEN, HEIGHTSCREEN, artefactQuantitiy)
+from classes.commonConsts import (WIDTHSCREEN, HEIGHTSCREEN, artefactQuantitiy, 
+	pickKey)
 from classes.gameIntVector import GVector
 
 class Game():
@@ -36,10 +38,19 @@ class Game():
 				self.pods.append(Pod(i * self.WIDTHSCREEN, j * self.HEIGHTSCREEN,
 				 self.WIDTHSCREEN, self.HEIGHTSCREEN, self.focus))
 		self.addArtefacts()
-		self.objects = {'player': [self.player], 'pods': self.pods, 
-		'artefacts': self.artefacts}
+		self.objects = [
+		self.pods,
+		self.artefacts,
+		[self.player]
+		]
 		self.run()
 
+	def getObjectUnderPoint(self, point, ignoreList=[]):
+		"""
+		Возвращает ссылку на объект находящийся под точкой
+		и не находящийся в списке ignoreList.
+		Если ничего не находит - возвращает None
+		"""
 	def addArtefacts(self):
 		"""
 		Добавляет на игровое поле артефакты
@@ -58,14 +69,9 @@ class Game():
 		По идее, она должна выполняться отдельным
 		потоком, или с помощью модуля acyncio"""
 		self.screen.fill(self.MAINCOLOR)
-		#рисуем подложку
-		for obj in self.objects['pods']:
-			obj.draw(self.screen)
-		#рисуем артефакты
-		for obj in self.artefacts:
-			obj.draw(self.screen)
-		#рисуем игрока
-		self.player.draw(self.screen)
+		for objArr in self.objects:
+			for obj in objArr:
+				obj.draw(self.screen)
 		pygame.display.update()
 
 	def moveWorld(self, dt):
@@ -74,8 +80,8 @@ class Game():
 		делаются в этой функции. Так же, выполняется с помощью
 		потоков или asyncio"""
 		#self.player.move(dt)
-		for key in self.objects:
-			for obj in self.objects[key]:
+		for objArr in self.objects:
+			for obj in objArr:
 				obj.move(dt)
 
 	def run(self):
@@ -89,6 +95,8 @@ class Game():
 			self.moveWorld(dt)
 			#пересчитываем фокус
 			px, py = self.player.initPoint.get()
+			mx, my = pygame.mouse.get_pos()#координаты мыши
+
 			if px < self.focus[0] + self.focusMargin:
 				self.focus[0] = px - self.focusMargin
 			if px > self.focus[0] + self.WIDTHSCREEN - self.focusMargin:
@@ -112,25 +120,47 @@ class Game():
 			if ((pressedKeys[K_RIGHT] or pressedKeys[K_d]) and 
 				not(pressedKeys[K_LEFT] or pressedKeys[K_a])):
 				self.player.goRight()
-
 			#налево
 			if ((pressedKeys[K_LEFT] or pressedKeys[K_a]) and 
 				not (pressedKeys[K_RIGHT] or pressedKeys[K_d])):
 				self.player.goLeft()
-
 			#выход из игры
 			if pressedKeys[K_ESCAPE]:
 				self.running = False
-
 			for event in pygame.event.get():
 				if event.type == QUIT:
 					#выходим по нажатию на крестик
 					self.running = False
-				# elif event.type==KEYDOWN:
-				# 	if (event.key==K_UP or event.key==K_w):
-				# 		self.player.goUp()
-				# 	elif event.key==K_ESCAPE:
-				# 		self.running = False
+				elif event.type==KEYDOWN:
+					if (event.key==pickKey):
+						self.pickAction()
+					elif event.key==K_ESCAPE:
+						self.running = False
+
 		#обработали---
 			dt = (self.fpsClock.tick(self.fps)) / 1000
 		exit()
+
+	def pointInRound(point:tuple, roundCenter:tuple, roundRadius:int)->bool:
+		"""
+		Возвращает True или False в зависимости от того,
+		попадает ли точка в круг
+		:parm point: (x, y) - координаты точки в кортеже
+		:parm roundCenter: (rx, ry) - координаты центра окружности
+		:parm roundRadius - радиус окружности
+		"""
+		x,y = point
+		rx,ry = roundCenter
+		return (x - rx) * (x - rx) + (y - ry) * (y - ry) < roundRadius * roundRadius
+
+	def pickAction(self):
+		"""выполняется, когда нажата клавиша взять"""
+		for curArr in reversed(self.objects):
+			for obj in reversed(curArr):
+				if not isinstance(obj, PickableObject):
+					break
+
+				if (True):
+					pass
+
+

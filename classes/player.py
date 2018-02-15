@@ -1,5 +1,5 @@
-import classes.renderedObj
-from classes.renderedObj import RenderedObject, GVector
+import classes.abstractClasses
+from classes.abstractClasses import RenderedObject, GVector
 import pygame
 from math import sin, cos, atan2, pi
 from classes.appFunctions import hexToTuple
@@ -16,6 +16,9 @@ class Player(RenderedObject):
 		self.frictionalCoefficient = 13
 		#константы, отвечающие за движение по нажатию клавиши
 		self.pushVelocity = 400#скорость, получаемая при нажатии кнопки вперед
+
+		self.inventory = []
+		self.pickDistance = 50#расстояние, с которого игрок может взять предмет
 
 	def goUp(self):
 		"""
@@ -37,6 +40,10 @@ class Player(RenderedObject):
 		Вызывается при нажатии кнопки движения налево
 		"""
 		self.initVel.x = -self.pushVelocity
+	
+	def pickObject(self, objectName):
+		"""отправляет объет в инвентарь"""
+
 	def draw(self, screen):
 		viewPoint = (self.initPoint+(GVector(sin(self.angle)*self.rad, 
 				-cos(self.angle)*self.rad))-self.focus).get()

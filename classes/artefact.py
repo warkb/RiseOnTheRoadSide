@@ -1,20 +1,28 @@
 import pygame
 from bisect import bisect
 from pygame.locals import*
-from classes.renderedObj import RenderedObject
+from classes.abstractClasses import RenderedObject, PickableObject
 from classes.gameIntVector import GVector
 from classes.commonConsts import (artefactsTypes, WIDTHSCREEN, HEIGHTSCREEN, 
 	artefactSize, artTypesTuple, artProbsTuple)
-from random import random
+from random import random, choice
 from classes.appFunctions import generateRandomInJaggedArea
 
-class Artefact(RenderedObject):
+"""
+Туду: есть интересная идея: заставить артефакты случайно перемещаться, и ввести переменую,
+которая будет отвечать за вероятность того, что артефакт сдвинется в сторону игрока
+(или даже аномалии, типо артефакт завлекает сталкера в аномалию)
+"""
+
+
+class Artefact(RenderedObject, PickableObject):
 	"""Артефакты, которые можно собирать в инвентарь"""
 	def __init__(self, focus, artType='grayball'):
 		RenderedObject.__init__(self, GVector(), focus=focus)
 		self.artType = artType
 		if not artType in artTypesTuple:
 			self.artType ='grayball'
+		PickableObject.__init__(self, self.artType)
 		self.color = artefactsTypes[self.artType]['color']
 		self.radius = artefactSize
 
@@ -34,9 +42,12 @@ class Artefact(RenderedObject):
 		Перемещает артефакт за пределы видимости игрока в случае, 
 		если игрок слишком далеко отойдет или заберет артефакт в инвентарь
 		"""
-		self.initPoint.x = generateRandomInJaggedArea(-WIDTHSCREEN, -self.radius, 
+		bArray = [WIDTHSCREEN, HEIGHTSCREEN]
+		bArray[choice((0, 1))] = -self.radius#это нужно для того, чтобы артефакты
+		#распределялись по полю более равномерно
+		self.initPoint.x = generateRandomInJaggedArea(-WIDTHSCREEN, bArray[0], 
 			WIDTHSCREEN, WIDTHSCREEN * 2)
-		self.initPoint.y = generateRandomInJaggedArea(-HEIGHTSCREEN, -self.radius, 
+		self.initPoint.y = generateRandomInJaggedArea(-HEIGHTSCREEN, bArray[1], 
 			HEIGHTSCREEN, HEIGHTSCREEN * 2)
 		self.initPoint += self.focus
 		self.setTypeRandomly()
@@ -54,3 +65,6 @@ class Artefact(RenderedObject):
 
 		self.artType = artTypesTuple[bisect(posArr, random())]
 		self.color = artefactsTypes[self.artType]['color']
+
+	def pick(self):
+		return self.inventoryName

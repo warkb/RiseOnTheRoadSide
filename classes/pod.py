@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import*
 from classes.appFunctions import hexToTuple
-from classes.renderedObj import RenderedObject
+from classes.abstractClasses import RenderedObject
 from classes.gameIntVector import GVector
 from random import randint
 

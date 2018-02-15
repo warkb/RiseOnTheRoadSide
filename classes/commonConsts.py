@@ -1,4 +1,5 @@
 from classes.appFunctions import hexToTuple
+from pygame.locals import *
 
 def getProbsOnCosts(*costs):
 	"""
@@ -21,9 +22,12 @@ artefactsTypes['redball'] = {'color': hexToTuple('EC0000'), 'price':5000, 'prob'
 artefactsTypes['blueball'] = {'color': hexToTuple('0246C3'), 'price':2500, 'prob': 0.25}
 artefactsTypes['grayball'] = {'color': hexToTuple('D8C6C6'), 'price':1000, 'prob': 0.625}
 
+################################
+#########Управление#############
+pickKey = K_e #клавиша подбора амуниции
+###############################
 artTypesTuple = tuple(x for x in artefactsTypes)
 artProbsTuple = tuple(artefactsTypes[x]['prob'] for x in artefactsTypes)
-
 
 #параметры экрана
 WIDTHSCREEN = 1024
