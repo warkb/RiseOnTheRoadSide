@@ -18,14 +18,16 @@ from classes.appFunctions import generateRandomInJaggedArea, isCollideRoundAndPo
 
 class Artefact(RenderedObject, PickableObject):
 	"""Артефакты, которые можно собирать в инвентарь"""
-	def __init__(self, focus, artType='grayball'):
+	def __init__(self, focus, inventoryName='grayball'):
 		RenderedObject.__init__(self, GVector(), focus=focus)
-		self.artType = artType
-		if not artType in artTypesTuple:
-			self.artType ='grayball'
-		PickableObject.__init__(self, self.artType)
-		self.color = artefactsTypes[self.artType]['color']
+		self.inventoryName = inventoryName
+		if not inventoryName in artTypesTuple:
+			self.inventoryName ='grayball'
+		PickableObject.__init__(self, self.inventoryName)
+		self.color = artefactsTypes[self.inventoryName]['color']
 		self.radius = artefactSize
+		print('Color = ' + str(self.color))
+		
 
 	def move(self, dt):
 		#если игрок слишком далеко отошел от артефакта
@@ -64,8 +66,8 @@ class Artefact(RenderedObject, PickableObject):
 			curPos += posb
 			posArr.append(curPos)
 
-		self.artType = artTypesTuple[bisect(posArr, random())]
-		self.color = artefactsTypes[self.artType]['color']
+		self.inventoryName = artTypesTuple[bisect(posArr, random())]
+		self.color = artefactsTypes[self.inventoryName]['color']
 
 	def pick(self):
 		self.relocate()

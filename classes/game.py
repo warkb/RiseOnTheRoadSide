@@ -157,11 +157,7 @@ class Game():
 
 	def pickAction(self):
 		"""выполняется, когда нажата клавиша взять"""
-		pickObj = self.getObjectUnderPoint(self.mousePoint)
-		if pickObj:
-			if isCollideRoundAndPoint(self.player, pickObj, self.player.pickDistance):
-				self.player.inventory.append(pickObj.inventoryName)
-				pickObj.pick()
+		self.player.pickObject(self)
 		
 
 

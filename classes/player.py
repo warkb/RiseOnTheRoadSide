@@ -2,7 +2,7 @@ import classes.abstractClasses
 from classes.abstractClasses import RenderedObject, GVector
 import pygame
 from math import sin, cos, atan2, pi
-from classes.appFunctions import hexToTuple
+from classes.appFunctions import hexToTuple, isCollideRoundAndPoint
 
 class Player(RenderedObject):
 	"""docstring for Player"""
@@ -41,8 +41,14 @@ class Player(RenderedObject):
 		"""
 		self.initVel.x = -self.pushVelocity
 	
-	def pickObject(self, objectName):
+	def pickObject(self, game):
 		"""отправляет объет в инвентарь"""
+		pickObj = game.getObjectUnderPoint(game.mousePoint)
+		if pickObj:
+			if isCollideRoundAndPoint(self, pickObj, self.pickDistance):
+				self.inventory.append(pickObj.inventoryName)
+				print(self.inventory)
+				pickObj.pick()
 
 	def draw(self, screen):
 		viewPoint = (self.initPoint+(GVector(sin(self.angle)*self.rad, 
