@@ -1,15 +1,16 @@
 import pygame
-from pygame.locals import *
 import classes.player
+
 from classes.player import Player
 from classes.abstractClasses import PickableObject
 from sys import exit
 from classes.artefact import Artefact
-from classes.appFunctions import hexToTuple
+from classes.appFunctions import hexToTuple, isCollideRoundAndPoint
 from classes.pod import Pod
 from classes.commonConsts import (WIDTHSCREEN, HEIGHTSCREEN, artefactQuantitiy, 
 	pickKey)
 from classes.gameIntVector import GVector
+from pygame.locals import *
 
 class Game():
 	"""
@@ -43,6 +44,8 @@ class Game():
 		self.artefacts,
 		[self.player]
 		]
+		self.mousePoint = (0, 0) # кортеж с координатами мыши, чтобы несколько раз
+		# не узнавать её координаты через функцию
 		self.run()
 
 	def getObjectUnderPoint(self, point, ignoreList=[]):
@@ -51,6 +54,15 @@ class Game():
 		и не находящийся в списке ignoreList.
 		Если ничего не находит - возвращает None
 		"""
+		for curArr in reversed(self.objects):
+			for obj in reversed(curArr):
+				if not isinstance(obj, PickableObject):
+					# если не подбираемый объект - смотрим следующий
+					continue
+				if obj.collide(point):
+					return obj
+
+
 	def addArtefacts(self):
 		"""
 		Добавляет на игровое поле артефакты
@@ -96,6 +108,7 @@ class Game():
 			#пересчитываем фокус
 			px, py = self.player.initPoint.get()
 			mx, my = pygame.mouse.get_pos()#координаты мыши
+			self.mousePoint = GVector(mx, my) + self.focus
 
 			if px < self.focus[0] + self.focusMargin:
 				self.focus[0] = px - self.focusMargin
@@ -132,6 +145,7 @@ class Game():
 					#выходим по нажатию на крестик
 					self.running = False
 				elif event.type==KEYDOWN:
+					#хватаем предмет
 					if (event.key==pickKey):
 						self.pickAction()
 					elif event.key==K_ESCAPE:
@@ -141,26 +155,13 @@ class Game():
 			dt = (self.fpsClock.tick(self.fps)) / 1000
 		exit()
 
-	def pointInRound(point:tuple, roundCenter:tuple, roundRadius:int)->bool:
-		"""
-		Возвращает True или False в зависимости от того,
-		попадает ли точка в круг
-		:parm point: (x, y) - координаты точки в кортеже
-		:parm roundCenter: (rx, ry) - координаты центра окружности
-		:parm roundRadius - радиус окружности
-		"""
-		x,y = point
-		rx,ry = roundCenter
-		return (x - rx) * (x - rx) + (y - ry) * (y - ry) < roundRadius * roundRadius
-
 	def pickAction(self):
 		"""выполняется, когда нажата клавиша взять"""
-		for curArr in reversed(self.objects):
-			for obj in reversed(curArr):
-				if not isinstance(obj, PickableObject):
-					break
-
-				if (True):
-					pass
+		pickObj = self.getObjectUnderPoint(self.mousePoint)
+		if pickObj:
+			if isCollideRoundAndPoint(self.player, pickObj, self.player.pickDistance):
+				self.player.inventory.append(pickObj.inventoryName)
+				pickObj.pick()
+		
 
 

@@ -14,7 +14,7 @@ class RenderedObject(ABC):
 		"""Функция возвращает итератор. Нужна для того, 
 		чтобы использовать объект в качестве массива координат
 		"""
-		return initPoint
+		return iter(self.initPoint.get())
 
 	@abstractmethod
 	def draw(self, screen):
@@ -27,6 +27,7 @@ class RenderedObject(ABC):
 	def collide(self, point):
 		"""Возвращает True, если точка point находится в пределах объекта"""
 		return False
+
 class PickableObject(ABC):
 	"""Абстрактный класс для объектов, подбираемых в инвентарь"""
 	def __init__(self, inventoryName):

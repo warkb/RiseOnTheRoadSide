@@ -1,4 +1,5 @@
 import pygame
+
 from bisect import bisect
 from pygame.locals import*
 from classes.abstractClasses import RenderedObject, PickableObject
@@ -6,7 +7,7 @@ from classes.gameIntVector import GVector
 from classes.commonConsts import (artefactsTypes, WIDTHSCREEN, HEIGHTSCREEN, 
 	artefactSize, artTypesTuple, artProbsTuple)
 from random import random, choice
-from classes.appFunctions import generateRandomInJaggedArea
+from classes.appFunctions import generateRandomInJaggedArea, isCollideRoundAndPoint
 
 """
 Туду: есть интересная идея: заставить артефакты случайно перемещаться, и ввести переменую,
@@ -67,4 +68,7 @@ class Artefact(RenderedObject, PickableObject):
 		self.color = artefactsTypes[self.artType]['color']
 
 	def pick(self):
-		return self.inventoryName
+		self.relocate()
+
+	def collide(self, point):
+		return isCollideRoundAndPoint(self, point, self.radius)
