@@ -23,9 +23,11 @@ class Player(RenderedObject):
 
 		self.inventory = []
 		self.pickDistance = 60#расстояние, с которого игрок может взять предмет
-		fontObj = pygame.font.Font('freesansbold.ttf', 14)
+		fontObj = pygame.font.Font('freesansbold.ttf', 18)
 		self.takeKeySurf = fontObj.render(pickKeyStr, True, (255, 255, 255))
 		self.takeKeyRect = self.takeKeySurf.get_rect()
+
+		self.eRad = 12 # радиус черного кружочка под буковкой взять
 
 
 	def goUp(self):
@@ -53,11 +55,10 @@ class Player(RenderedObject):
 		"""отправляет объет в инвентарь"""
 		pickObj = game.objectUnderPick
 		if pickObj:
-			if isCollideRoundAndPoint(self, pickObj, self.pickDistance):
-				self.inventory.append(pickObj.inventoryName)
-				if isinstance(pickObj, Artefact):
-					game.getFreeFlyingText().revival(pickObj)
-				pickObj.pick()
+			self.inventory.append(pickObj.inventoryName)
+			if isinstance(pickObj, Artefact):
+				game.getFreeFlyingText().revival(pickObj)
+			pickObj.pick()
 
 	def draw(self, screen):
 		viewPoint = (self.initPoint+(GVector(sin(self.angle)*self.rad, 
@@ -70,7 +71,10 @@ class Player(RenderedObject):
 		# Если есть объект, который можно взять
 		if self.game.objectUnderPick:
 			# отрисовываем буковку, на которую назначено взять
-			self.takeKeyRect.midbottom = self.game.mousePoint - self.focus
+			self.takeKeyRect.center = self.initPoint - self.focus
+			pygame.draw.circle(screen, hexToTuple('884A01'), 
+				self.initPoint - self.focus,
+				self.eRad)
 			screen.blit(self.takeKeySurf, self.takeKeyRect)
 
 

@@ -67,7 +67,9 @@ class Game():
 					# если не подбираемый объект - смотрим следующий
 					continue
 				if obj.collide(point):
-					return obj
+					if isCollideRoundAndPoint(self.player, obj, 
+						self.player.pickDistance):
+						return obj
 
 
 	def addArtefacts(self):
