@@ -25,9 +25,8 @@ class Artefact(RenderedObject, PickableObject):
 			self.inventoryName ='grayball'
 		PickableObject.__init__(self, self.inventoryName)
 		self.color = artefactsTypes[self.inventoryName]['color']
+		self.price = artefactsTypes[self.inventoryName]['price']
 		self.radius = artefactSize
-		print('Color = ' + str(self.color))
-		
 
 	def move(self, dt):
 		#если игрок слишком далеко отошел от артефакта
@@ -68,6 +67,7 @@ class Artefact(RenderedObject, PickableObject):
 
 		self.inventoryName = artTypesTuple[bisect(posArr, random())]
 		self.color = artefactsTypes[self.inventoryName]['color']
+		self.price = artefactsTypes[self.inventoryName]['price']
 
 	def pick(self):
 		self.relocate()

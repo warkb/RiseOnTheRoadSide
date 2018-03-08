@@ -1,4 +1,5 @@
 import classes.abstractClasses
+from classes.artefact import Artefact
 from classes.abstractClasses import RenderedObject, GVector
 import pygame
 from math import sin, cos, atan2, pi
@@ -18,7 +19,7 @@ class Player(RenderedObject):
 		self.pushVelocity = 400#скорость, получаемая при нажатии кнопки вперед
 
 		self.inventory = []
-		self.pickDistance = 50#расстояние, с которого игрок может взять предмет
+		self.pickDistance = 60#расстояние, с которого игрок может взять предмет
 
 	def goUp(self):
 		"""
@@ -47,7 +48,8 @@ class Player(RenderedObject):
 		if pickObj:
 			if isCollideRoundAndPoint(self, pickObj, self.pickDistance):
 				self.inventory.append(pickObj.inventoryName)
-				print(self.inventory)
+				if isinstance(pickObj, Artefact):
+					game.getFreeFlyingText().revival(pickObj)
 				pickObj.pick()
 
 	def draw(self, screen):

@@ -1,8 +1,13 @@
+from collections import Iterable
+
 class GVector():
 	"""
 	двумерный целочисленный вектор
 	"""
 	def __init__(self, x=0, y=0):
+		if isinstance(x, Iterable):
+			self.x, self.y = x
+			return
 		self.x = int(x)
 		self.y = int(y)
 

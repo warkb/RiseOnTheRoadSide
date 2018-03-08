@@ -6,9 +6,10 @@ from classes.abstractClasses import PickableObject
 from sys import exit
 from classes.artefact import Artefact
 from classes.appFunctions import hexToTuple, isCollideRoundAndPoint
+from classes.flyingText import FlyingText
 from classes.pod import Pod
 from classes.commonConsts import (WIDTHSCREEN, HEIGHTSCREEN, artefactQuantitiy, 
-	pickKey)
+	pickKey, FPS, flyingTextCount)
 from classes.gameIntVector import GVector
 from pygame.locals import *
 
@@ -29,7 +30,6 @@ class Game():
 		self.focusMargin = int(self.HEIGHTSCREEN / 4)
 
 		self.MAINCOLOR = hexToTuple('B6F788')
-		self.fps = 60
 		self.fpsClock = pygame.time.Clock()
 		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2, self.focus)
 		#добавляем подложки
@@ -39,11 +39,17 @@ class Game():
 				self.pods.append(Pod(i * self.WIDTHSCREEN, j * self.HEIGHTSCREEN,
 				 self.WIDTHSCREEN, self.HEIGHTSCREEN, self.focus))
 		self.addArtefacts()
-		self.objects = [
-		self.pods,
-		self.artefacts,
-		[self.player]
-		]
+
+		# добавляем flying text
+		self.flyingTexts = [FlyingText(self.focus) for _ in range(flyingTextCount)]
+		# self.flyingTexts = 
+
+		self.objects = (
+				self.pods,
+				self.artefacts,
+				self.flyingTexts,
+				[self.player]
+				)
 		self.mousePoint = (0, 0) # кортеж с координатами мыши, чтобы несколько раз
 		# не узнавать её координаты через функцию
 		self.run()
@@ -152,12 +158,19 @@ class Game():
 						self.running = False
 
 		#обработали---
-			dt = (self.fpsClock.tick(self.fps)) / 1000
+			dt = (self.fpsClock.tick(FPS)) / 1000
 		exit()
 
 	def pickAction(self):
 		"""выполняется, когда нажата клавиша взять"""
 		self.player.pickObject(self)
 		
-
-
+	def getFreeFlyingText(self):
+		"""
+		Возвращает первый свободный flyingText
+		Если таких нет - делает исключение
+		"""
+		for ft in self.flyingTexts:
+			if not ft.active:
+				return ft
+		raise BaseException("Слишком мало летучих текстов")
