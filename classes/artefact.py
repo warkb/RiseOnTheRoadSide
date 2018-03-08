@@ -5,7 +5,7 @@ from pygame.locals import*
 from classes.abstractClasses import RenderedObject, PickableObject
 from classes.gameIntVector import GVector
 from classes.commonConsts import (artefactsTypes, WIDTHSCREEN, HEIGHTSCREEN, 
-	artefactSize, artTypesTuple, artProbsTuple)
+	artefactSize, artTypesTuple, artProbsTuple, FPS)
 from random import random, choice
 from classes.appFunctions import generateRandomInJaggedArea, isCollideRoundAndPoint
 
@@ -18,6 +18,8 @@ from classes.appFunctions import generateRandomInJaggedArea, isCollideRoundAndPo
 
 class Artefact(RenderedObject, PickableObject):
 	"""Артефакты, которые можно собирать в инвентарь"""
+	pulseRad = 3 # колебания радиуса артефакта
+	maxPulse = FPS
 	def __init__(self, focus, inventoryName='grayball'):
 		RenderedObject.__init__(self, GVector(), focus=focus)
 		self.inventoryName = inventoryName
@@ -28,6 +30,20 @@ class Artefact(RenderedObject, PickableObject):
 		self.price = artefactsTypes[self.inventoryName]['price']
 		self.radius = artefactSize
 
+		self.deltaPulse = choice([-1, 1])
+		self.pulse = 0
+
+
+	def toPulse(self):
+		"""
+		Отвечает за пульсирование артефакта
+		"""
+		self.pulse += self.deltaPulse * self.price / 500
+		if self.pulse < - self.maxPulse or self.pulse > self.maxPulse:
+			self.deltaPulse *= -1
+		return int(self.pulseRad * (self.pulse / self.maxPulse))
+
+
 	def move(self, dt):
 		#если игрок слишком далеко отошел от артефакта
 		if not self.initPoint.inRectangle(self.focus - GVector(WIDTHSCREEN, HEIGHTSCREEN),
@@ -37,7 +53,8 @@ class Artefact(RenderedObject, PickableObject):
 
 	def draw(self, screen):
 		""""""
-		pygame.draw.circle(screen, self.color, self.initPoint - self.focus, self.radius)
+		pygame.draw.circle(screen, self.color, self.initPoint - self.focus, 
+			self.radius + self.toPulse())
 
 	def relocate(self):
 		"""

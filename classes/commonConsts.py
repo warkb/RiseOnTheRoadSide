@@ -15,7 +15,7 @@ def getProbsOnCosts(*costs):
 	return probs
 
 # параметры артефактов
-artefactSize = 10 # радиус артефакта при отрисовке
+artefactSize = 15 # радиус артефакта при отрисовке
 artefactQuantitiy = 10 # количество артефактов на поле
 artefactsTypes = {} # словарь с типами артефактов
 artefactsTypes['redball'] = {'color': hexToTuple('EC0000'), 'price':5000, 'prob': 0.125}
@@ -28,6 +28,7 @@ flyingTextCount = 20
 ################################
 #########Управление#############
 pickKey = K_e # клавиша подбора амуниции
+pickKeyStr = 'E'
 ###############################
 artTypesTuple = tuple(x for x in artefactsTypes)
 artProbsTuple = tuple(artefactsTypes[x]['prob'] for x in artefactsTypes)

@@ -60,7 +60,6 @@ class FlyingText(RenderedObject):
 		if self.active:
 			self.counter += 1
 			if self.counter > self.fadeTime:
-				print("А точка отображения на экране %s" % (self.initPoint - self.focus))
 				self.active = False
 
 

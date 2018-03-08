@@ -31,7 +31,7 @@ class Game():
 
 		self.MAINCOLOR = hexToTuple('B6F788')
 		self.fpsClock = pygame.time.Clock()
-		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2, self.focus)
+		self.player = Player(self.WIDTHSCREEN / 2, self.HEIGHTSCREEN / 2, self.focus, self)
 		#добавляем подложки
 		self.pods = []
 		for i in [-1, 0, 1]:
@@ -52,6 +52,7 @@ class Game():
 				)
 		self.mousePoint = (0, 0) # кортеж с координатами мыши, чтобы несколько раз
 		# не узнавать её координаты через функцию
+		self.objectUnderPick = None
 		self.run()
 
 	def getObjectUnderPoint(self, point, ignoreList=[]):
@@ -60,7 +61,7 @@ class Game():
 		и не находящийся в списке ignoreList.
 		Если ничего не находит - возвращает None
 		"""
-		for curArr in reversed(self.objects):
+		for curArr in reversed([self.artefacts]):
 			for obj in reversed(curArr):
 				if not isinstance(obj, PickableObject):
 					# если не подбираемый объект - смотрим следующий
@@ -116,6 +117,7 @@ class Game():
 			mx, my = pygame.mouse.get_pos()#координаты мыши
 			self.mousePoint = GVector(mx, my) + self.focus
 
+			self.objectUnderPick = self.getObjectUnderPoint(self.mousePoint)
 			if px < self.focus[0] + self.focusMargin:
 				self.focus[0] = px - self.focusMargin
 			if px > self.focus[0] + self.WIDTHSCREEN - self.focusMargin:

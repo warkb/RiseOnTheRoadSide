@@ -1,15 +1,18 @@
 import classes.abstractClasses
 from classes.artefact import Artefact
 from classes.abstractClasses import RenderedObject, GVector
+from classes.commonConsts import pickKeyStr
 import pygame
 from math import sin, cos, atan2, pi
 from classes.appFunctions import hexToTuple, isCollideRoundAndPoint
 
 class Player(RenderedObject):
 	"""docstring for Player"""
-	def __init__(self, x, y, focus):
+	def __init__(self, x, y, focus, game):
 		initPlayerVelocity = GVector(0, 0)
 		RenderedObject.__init__(self, GVector(x,y), focus)
+		self.game = game
+
 		self.initVel = GVector()
 		self.rad = 30
 		self.angle = 0
@@ -20,6 +23,10 @@ class Player(RenderedObject):
 
 		self.inventory = []
 		self.pickDistance = 60#расстояние, с которого игрок может взять предмет
+		fontObj = pygame.font.Font('freesansbold.ttf', 14)
+		self.takeKeySurf = fontObj.render(pickKeyStr, True, (255, 255, 255))
+		self.takeKeyRect = self.takeKeySurf.get_rect()
+
 
 	def goUp(self):
 		"""
@@ -44,7 +51,7 @@ class Player(RenderedObject):
 	
 	def pickObject(self, game):
 		"""отправляет объет в инвентарь"""
-		pickObj = game.getObjectUnderPoint(game.mousePoint)
+		pickObj = game.objectUnderPick
 		if pickObj:
 			if isCollideRoundAndPoint(self, pickObj, self.pickDistance):
 				self.inventory.append(pickObj.inventoryName)
@@ -59,6 +66,14 @@ class Player(RenderedObject):
 		 self.rad, 3)
 		pygame.draw.line(screen, self.color, (self.initPoint-self.focus).get(), 
 			viewPoint, 3)
+
+		# Если есть объект, который можно взять
+		if self.game.objectUnderPick:
+			# отрисовываем буковку, на которую назначено взять
+			self.takeKeyRect.midbottom = self.game.mousePoint - self.focus
+			screen.blit(self.takeKeySurf, self.takeKeyRect)
+
+
 	def move(self, dt):
 		"""
 		запускается каждую итерацию, двигает героя,
