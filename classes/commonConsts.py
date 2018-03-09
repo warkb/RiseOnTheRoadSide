@@ -27,7 +27,7 @@ artefactsTypes['grayball'] = {'color': hexToTuple('D8C6C6'), 'price':1000, 'prob
 flyingTextCount = 20
 
 #параметры для соперников
-QUANTITY_OF_ANOTHER_STALKERS = 4
+QUANTITY_OF_ANOTHER_STALKERS = 6
 
 
 ################################

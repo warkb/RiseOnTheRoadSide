@@ -75,7 +75,7 @@ class Player(RenderedObject):
 			# отрисовываем буковку, на которую назначено взять
 			self.takeKeyRect.center = self.initPoint - self.focus
 			pygame.draw.circle(screen, hexToTuple('884A01'), 
-				self.initPoint - self.focus,
+				(self.initPoint - self.focus).get(),
 				self.eRad)
 			screen.blit(self.takeKeySurf, self.takeKeyRect)
 

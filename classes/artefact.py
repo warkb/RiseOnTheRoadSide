@@ -53,7 +53,7 @@ class Artefact(RenderedObject, PickableObject):
 
 	def draw(self, screen):
 		""""""
-		pygame.draw.circle(screen, self.color, self.initPoint - self.focus, 
+		pygame.draw.circle(screen, self.color, (self.initPoint - self.focus).get(), 
 			self.radius + self.toPulse())
 
 	def relocate(self):

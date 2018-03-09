@@ -1,5 +1,5 @@
 from random import random
-from math import pi, cos, sin
+from math import pi, cos, sin, sqrt
 
 def getRandomAngleInArea(a = 0, b = 2 * pi):
 	"""выдает случайный угол в диапазоне [a, b]"""
@@ -18,6 +18,11 @@ def getRandomPointOnCircle(radius, xc=0, yc=0, angle=None):
 		angle = getRandomAngleInArea()
 	return (xc + radius * cos(angle), yc + radius * sin(angle))
 
+def distanceToPoint(p1, p2):
+	"""возвращает расстояние между двумя точками"""
+	p1x, p1y = p1
+	p2x, p2y = p2
+	return sqrt((p1x - p2x) ** 2 + (p1y - p2y) ** 2)
 
 def generateRandomInJaggedArea(a, b, c, d):
 	"""Генерирует рандомное число в области [a, b] U [c, d]"""

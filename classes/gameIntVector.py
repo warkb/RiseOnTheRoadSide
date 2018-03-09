@@ -8,8 +8,8 @@ class GVector():
 		if isinstance(x, Iterable):
 			self.x, self.y = x
 			return
-		self.x = int(x)
-		self.y = int(y)
+		self.x = x
+		self.y = y
 
 	def __str__(self):
 		"""переопределение функции print"""
@@ -25,7 +25,7 @@ class GVector():
 
 	def __mul__(self, m):
 		"""Умножение вектора на скаляр"""
-		return GVector(int(self.x * m), int(self.y * m))
+		return GVector(self.x * m, self.y * m)
 
 	def __getitem__(self, key):
 		if key == 0:
@@ -40,9 +40,9 @@ class GVector():
 
 	def __setitem__(self, key, value):
 		if key == 0:
-			self.x = int(value)
+			self.x = value
 		elif key == 1:
-			self.y = int(value)
+			self.y = value
 		else:
 			raise BaseException('Нету больше ничего')
 
@@ -50,8 +50,8 @@ class GVector():
 		return 2
 
 	def get(self):
-		"""возвращает кортеж с координатами вектора"""
-		return (self.x, self.y)
+		"""возвращает кортеж с координатами вектора в интовом виде"""
+		return (round(self.x), round(self.y))
 
 	def inRectangle(self, v1, v2):
 		"""
