@@ -1,4 +1,5 @@
 from classes.appFunctions import hexToTuple
+from classes.appFunctions import hexToTuple
 from pygame.locals import *
 
 def getProbsOnCosts(*costs):
@@ -25,6 +26,10 @@ artefactsTypes['grayball'] = {'color': hexToTuple('D8C6C6'), 'price':1000, 'prob
 # параметры для FlyingText
 flyingTextCount = 20
 
+#параметры для соперников
+QUANTITY_OF_ANOTHER_STALKERS = 4
+
+
 ################################
 #########Управление#############
 pickKey = K_e # клавиша подбора амуниции
@@ -38,3 +43,6 @@ WIDTHSCREEN = 1024
 HEIGHTSCREEN = 700
 
 FPS = 60
+
+#COLORS
+RED = hexToTuple('E03635')

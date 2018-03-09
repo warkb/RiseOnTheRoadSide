@@ -1,4 +1,23 @@
 from random import random
+from math import pi, cos, sin
+
+def getRandomAngleInArea(a = 0, b = 2 * pi):
+	"""выдает случайный угол в диапазоне [a, b]"""
+	if a == b:
+		return a
+	if a > b:
+		tmp = a
+		a = b
+		b = tmp
+	return a + (b - a) * random()
+
+def getRandomPointOnCircle(radius, xc=0, yc=0, angle=None):
+	"""Возвращает случайную точку на окружности
+	Если явно прописать angle - не случайную)"""
+	if angle == None:
+		angle = getRandomAngleInArea()
+	return (xc + radius * cos(angle), yc + radius * sin(angle))
+
 
 def generateRandomInJaggedArea(a, b, c, d):
 	"""Генерирует рандомное число в области [a, b] U [c, d]"""

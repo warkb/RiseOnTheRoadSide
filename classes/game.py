@@ -5,11 +5,13 @@ from classes.player import Player
 from classes.abstractClasses import PickableObject
 from sys import exit
 from classes.artefact import Artefact
+from classes.anotherStalker import AnotherStalker
 from classes.appFunctions import hexToTuple, isCollideRoundAndPoint
+from classes.debugInfo import DebugInfo
 from classes.flyingText import FlyingText
 from classes.pod import Pod
 from classes.commonConsts import (WIDTHSCREEN, HEIGHTSCREEN, artefactQuantitiy, 
-	pickKey, FPS, flyingTextCount)
+	pickKey, FPS, flyingTextCount, QUANTITY_OF_ANOTHER_STALKERS)
 from classes.gameIntVector import GVector
 from pygame.locals import *
 
@@ -43,12 +45,16 @@ class Game():
 		# добавляем flying text
 		self.flyingTexts = [FlyingText(self.focus) for _ in range(flyingTextCount)]
 		# self.flyingTexts = 
-
+		self.debugInfo = DebugInfo(self)
+		self.anotherStalkerS = tuple([AnotherStalker(self) 
+			for _ in range(QUANTITY_OF_ANOTHER_STALKERS)])
 		self.objects = (
 				self.pods,
 				self.artefacts,
+				self.anotherStalkerS,
+				[self.player],
 				self.flyingTexts,
-				[self.player]
+				[self.debugInfo]
 				)
 		self.mousePoint = (0, 0) # кортеж с координатами мыши, чтобы несколько раз
 		# не узнавать её координаты через функцию

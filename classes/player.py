@@ -9,7 +9,6 @@ from classes.appFunctions import hexToTuple, isCollideRoundAndPoint
 class Player(RenderedObject):
 	"""docstring for Player"""
 	def __init__(self, x, y, focus, game):
-		initPlayerVelocity = GVector(0, 0)
 		RenderedObject.__init__(self, GVector(x,y), focus)
 		self.game = game
 
@@ -65,6 +64,9 @@ class Player(RenderedObject):
 				-cos(self.angle)*self.rad))-self.focus).get()
 		pygame.draw.circle(screen, self.color, (self.initPoint-self.focus).get(),
 		 self.rad, 3)
+		# для отладки
+		# pygame.draw.circle(screen, self.color, (self.initPoint-self.focus).get(),
+		#  200, 3)
 		pygame.draw.line(screen, self.color, (self.initPoint-self.focus).get(), 
 			viewPoint, 3)
 
