@@ -1,5 +1,5 @@
 from random import random
-from math import pi, cos, sin, sqrt
+from math import pi, cos, sin, sqrt, atan2
 
 def getRandomAngleInArea(a = 0, b = 2 * pi):
 	"""выдает случайный угол в диапазоне [a, b]"""
@@ -48,3 +48,18 @@ def isCollideRoundAndPoint(point:tuple, roundCenter:tuple, roundRadius:int)->boo
 		x,y = point
 		rx,ry = roundCenter
 		return (x - rx) * (x - rx) + (y - ry) * (y - ry) < roundRadius * roundRadius
+
+def getAngleFromPointToPoint(point1, point2):
+	"""
+	Возвращает угол, определяющий направление прямой от точки point1
+	до точки point2
+	:parm point1: (x, y) - координаты точки в кортеже
+	:parm point2: (x, y) - координаты точки в кортеже
+	:return angle: угол в градусах
+	"""
+	p1x, p1y = point1
+	p2x, p2y = point2
+	angleInRad = atan2(p1y - p2y,
+			p1x - p2x)
+	angle = -angleInRad * 180 / pi
+	return angle

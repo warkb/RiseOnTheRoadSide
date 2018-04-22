@@ -3,7 +3,8 @@ import pygame
 from classes.artefact import Artefact
 from classes.abstractClasses import RenderedObject, GVector
 from classes.appFunctions import (hexToTuple, isCollideRoundAndPoint, 
-	getRandomAngleInArea, getRandomPointOnCircle)
+	getRandomAngleInArea, getRandomPointOnCircle, getAngleFromPointToPoint, 
+	distanceToPoint)
 from classes.commonConsts import pickKeyStr, RED
 from math import sin, cos, atan2, pi
 from random import random, randint, choice
@@ -14,12 +15,14 @@ class AnotherStalker(RenderedObject):
 	baseRadius = 20 # базовый радиус персонажа
 	spread = 5 # разброс по радиусу персонажа
 	padding = 10 # расстояние от края персонажа до края поверхности
+	angleSpeed = 50
 	# состояния
 	choiceDirectionState = 'choiceDirectionState'
 	uselessWalk = 'uselessWalk'
+	angleChangingStatus = 'angleChangingStatus'
 
 	def __init__(self, game):
-		self.bornRadius = 200 # Радиус, в котором появляются сталкеры в начале
+		self.bornRadius = game.WIDTHSCREEN # Радиус, в котором появляются сталкеры в начале
 		randomAngle = 2 * pi * random()
 		px, py = game.player.initPoint
 		x, y = (self.bornRadius * -cos(randomAngle) + px, 
@@ -41,8 +44,8 @@ class AnotherStalker(RenderedObject):
 
 		# параметры для искусственного интеллекта
 		self.state = self.uselessWalk
-		self.maxWalkTime = randint(5, 10) # время, пока персонаж просто идет
-		self.velocity = randint(50, 100) # скорость персонажа
+		self.maxWalkTime = randint(5, 15) # время, пока персонаж просто идет
+		self.velocity = randint(100, 150) # скорость персонажа
 		self.walkTime = self.maxWalkTime # текущий статус таймера
 
 	def createBaseSurf(self):
@@ -52,9 +55,12 @@ class AnotherStalker(RenderedObject):
 		pygame.draw.rect(self.baseSurf, self.color, (0, 0, 20, 20))
 
 	def changeNewAngle(self):
-		angleInRad = atan2(self.initPoint.y - self.game.player.initPoint.y,
-			self.initPoint.x - self.game.player.initPoint.x)
-		self.angle = -angleInRad * 180 / pi
+		angle = getAngleFromPointToPoint(self.initPoint, self.game.player.initPoint)
+		distanceToPlayer = 	distanceToPoint(self.initPoint, self.game.player.initPoint)
+		if distanceToPlayer < self.game.WIDTHSCREEN:
+			angle += randint(-90, 90) * ((self.game.WIDTHSCREEN - distanceToPlayer)
+				/ self.game.WIDTHSCREEN) # чем дальше игрок, тем меньше разброс
+		return angle
 
 	def draw(self, screen):
 		newSurf = pygame.transform.rotate(self.baseSurf, self.angle + 90)
@@ -93,9 +99,14 @@ class AnotherStalker(RenderedObject):
 				self.walkTime = self.maxWalkTime
 
 		if self.state == self.choiceDirectionState:
-			self.changeNewAngle()
-			self.state = self.uselessWalk;
+			self.newAngle = self.changeNewAngle()
+			if self.newAngle - self.angle > 0:
+				self.dAngle = 1 # прирост угла будет положительным
+			else:
+				self.dAngle = -1
+			self.state = self.angleChangingStatus;
 
-
-
-
+		if self.state == self.angleChangingStatus:
+			self.angle += dt * self.dAngle * self.angleSpeed
+			if abs(self.angle - self.newAngle) < 3:
+				self.state = self.uselessWalk
