@@ -11,8 +11,8 @@ from time import time
 
 class AnotherStalker(RenderedObject):
 	"""Сталкер управляемый искусственным интеллектом"""
-	baseRadius = 30 # базовый радиус персонажа
-	spread = 10 # разброс по радиусу персонажа
+	baseRadius = 20 # базовый радиус персонажа
+	spread = 5 # разброс по радиусу персонажа
 	padding = 10 # расстояние от края персонажа до края поверхности
 	# состояния
 	choiceDirectionState = 'choiceDirectionState'
@@ -33,7 +33,7 @@ class AnotherStalker(RenderedObject):
 		#self.angle = 180
 
 		# его цвет
-		self.color = tuple([randint(10, 250) for _ in range(3)])
+		self.color = tuple([randint(0, 25) * 10 for _ in range(3)])
 
 		# его радиус
 		self.radiusCharacter = self.baseRadius + randint(-self.spread, self.spread)
@@ -41,35 +41,23 @@ class AnotherStalker(RenderedObject):
 
 		# параметры для искусственного интеллекта
 		self.state = self.uselessWalk
-		self.maxWalkTime = randint(10, 30) # время, пока персонаж просто идет
-		self.velocity = randint(50, 200) # скорость персонажа
+		self.maxWalkTime = randint(5, 10) # время, пока персонаж просто идет
+		self.velocity = randint(50, 100) # скорость персонажа
 		self.walkTime = self.maxWalkTime # текущий статус таймера
 
 	def createBaseSurf(self):
-		self.baseSurf = pygame.Surface(((self.radiusCharacter + self.padding) * 2, 
-			(self.radiusCharacter + self.padding) * 2), flags=pygame.SRCALPHA)
-		pygame.draw.circle(self.baseSurf, self.color, (self.radiusCharacter + self.padding, 
-			self.radiusCharacter + self.padding), 
-			self.radiusCharacter, 3)
-		# рисуем линии
-		randomPoints = [getRandomPointOnCircle(self.radiusCharacter - 2, 
-			self.radiusCharacter + self.padding,
-			self.radiusCharacter + self.padding) 
-		for _ in range(8)]
-		for i in range(0, 8, 2):
-			pygame.draw.line(self.baseSurf, self.color, randomPoints[i],
-				randomPoints[i + 1], 3)
+		self.baseSurf = pygame.image.load('img/persBase.png')
+		pygame.draw.circle(self.baseSurf, self.color, 
+			self.baseSurf.get_rect().center, self.radiusCharacter)
+		pygame.draw.rect(self.baseSurf, self.color, (0, 0, 20, 20))
 
-		# рисуем кружочек, который будет показывать, куда смотрит персонаж
-		pygame.draw.circle(self.baseSurf, self.color, (self.padding, 
-			self.radiusCharacter + self.padding), 7)
-
-
-		pygame.draw.circle(self.baseSurf, RED, (self.radiusCharacter + self.padding, 
-			self.radiusCharacter + self.padding), 5)
+	def changeNewAngle(self):
+		angleInRad = atan2(self.initPoint.y - self.game.player.initPoint.y,
+			self.initPoint.x - self.game.player.initPoint.x)
+		self.angle = -angleInRad * 180 / pi
 
 	def draw(self, screen):
-		newSurf = pygame.transform.rotate(self.baseSurf, self.angle)
+		newSurf = pygame.transform.rotate(self.baseSurf, self.angle + 90)
 		newRect = newSurf.get_rect()
 		newRect.center = self.initPoint - self.focus
 		screen.blit(newSurf, newRect)
@@ -100,6 +88,13 @@ class AnotherStalker(RenderedObject):
 			self.initPoint.y += sin(angleRad) * m
 			# print("y %s " % self.initPoint.y)
 			self.walkTime -= dt
+			if self.walkTime < 0:
+				self.state = self.choiceDirectionState
+				self.walkTime = self.maxWalkTime
+
+		if self.state == self.choiceDirectionState:
+			self.changeNewAngle()
+			self.state = self.uselessWalk;
 
 
 
