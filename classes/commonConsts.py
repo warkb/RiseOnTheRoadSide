@@ -40,7 +40,7 @@ artProbsTuple = tuple(artefactsTypes[x]['prob'] for x in artefactsTypes)
 
 #параметры экрана
 WIDTHSCREEN = 1024
-HEIGHTSCREEN = 700
+HEIGHTSCREEN = 768
 
 FPS = 60
 

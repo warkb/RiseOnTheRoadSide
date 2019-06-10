@@ -114,7 +114,7 @@ class Game():
 	def run(self):
 		pygame.init()
 		self.screen = pygame.display.set_mode((self.WIDTHSCREEN, 
-			self.HEIGHTSCREEN), 0, 32)
+			self.HEIGHTSCREEN), pygame.FULLSCREEN, 32)
 		self.running = True
 		dt = 0
 		#обрабатываем события
