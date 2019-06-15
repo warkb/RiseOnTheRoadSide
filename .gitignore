@@ -2,3 +2,4 @@
 venv
 *.pyc
 classes/__pycache__
+__pycache__
