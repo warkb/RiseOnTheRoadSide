@@ -1,0 +1,1089 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"кру",
+				"кружков"
+			],
+			[
+				"win",
+				"win_streak"
+			],
+			[
+				"l",
+				"looseStreak"
+			],
+			[
+				"lo",
+				"loosestreak_to_next"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"up",
+				"updateCounter"
+			],
+			[
+				"upd",
+				"updateCounter"
+			],
+			[
+				"try",
+				"tryesLeft"
+			],
+			[
+				"cl",
+				"clean_user_data"
+			],
+			[
+				"fa",
+				"father_name"
+			],
+			[
+				"fi",
+				"first_name"
+			],
+			[
+				"ac",
+				"accept_user"
+			],
+			[
+				"per",
+				"personId"
+			],
+			[
+				"del",
+				"delete_user"
+			],
+			[
+				"j",
+				"sweetalert.min.js"
+			],
+			[
+				"s",
+				"static/"
+			],
+			[
+				"da",
+				"day"
+			],
+			[
+				"ge",
+				"getMonth"
+			],
+			[
+				"get",
+				"getDate"
+			],
+			[
+				"ma",
+				"margin\tproperty"
+			],
+			[
+				"pers",
+				"persons"
+			],
+			[
+				"li",
+				"line-height\tproperty"
+			],
+			[
+				"form",
+				"form-input"
+			],
+			[
+				"ov",
+				"overflow\tproperty"
+			],
+			[
+				"inl",
+				"inline-block\tdisplay"
+			],
+			[
+				"di",
+				"display\tproperty"
+			],
+			[
+				"bac",
+				"background-size\tproperty"
+			],
+			[
+				"new",
+				"new_unix_time\tlet"
+			],
+			[
+				"re",
+				"reload_users\twarning"
+			],
+			[
+				"te",
+				"then\twarning"
+			],
+			[
+				"row",
+				"rows\tparameter"
+			],
+			[
+				"un",
+				"unix_time\tlet"
+			],
+			[
+				"st",
+				"stringify\tmethod"
+			],
+			[
+				"Js",
+				"JSON\twarning"
+			],
+			[
+				"parse",
+				"parseInt\tfunction"
+			],
+			[
+				"ng-cl",
+				"ng-click\tAngularJS"
+			],
+			[
+				"pa",
+				"padding-left\tproperty"
+			],
+			[
+				"con",
+				"controller\tAngular.js"
+			],
+			[
+				"fin",
+				"finalObj\tlet"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"$sc",
+				"$scope\tAngularJS"
+			],
+			[
+				"w",
+				"webix.js"
+			],
+			[
+				"С",
+				"Съездить"
+			],
+			[
+				"девуш",
+				"девушки"
+			],
+			[
+				"пос",
+				"посидеть"
+			],
+			[
+				"дру",
+				"друзей"
+			],
+			[
+				"При",
+				"Пригласить"
+			],
+			[
+				"дев",
+				"девушке"
+			],
+			[
+				"моло",
+				"молодежки"
+			],
+			[
+				"же",
+				"женщине"
+			],
+			[
+				"деву",
+				"девушке"
+			],
+			[
+				"мол",
+				"молодежки"
+			],
+			[
+				"колл",
+				"коллеги"
+			],
+			[
+				"де",
+				"девушке"
+			],
+			[
+				"с",
+				"сланцах"
+			],
+			[
+				"П",
+				"Пригласить"
+			],
+			[
+				"нез",
+				"незнакомого"
+			],
+			[
+				"ма",
+				"мафии"
+			],
+			[
+				"so",
+				"sociotask.txt"
+			],
+			[
+				"tab",
+				"table-row\tdisplay"
+			],
+			[
+				"Попро",
+				"Попроситься"
+			],
+			[
+				"вер",
+				"вернуть"
+			],
+			[
+				"мага",
+				"магазин"
+			],
+			[
+				"то",
+				"только"
+			],
+			[
+				"за",
+				"заговорил"
+			],
+			[
+				"кото",
+				"которой"
+			],
+			[
+				"по",
+				"посидеть"
+			],
+			[
+				"рок-",
+				"рок-концерт"
+			],
+			[
+				"кон",
+				"концерт"
+			],
+			[
+				"к",
+				"коллеге"
+			],
+			[
+				"pri",
+				"pricesArr"
+			],
+			[
+				"im",
+				"imageUrl\tparameter"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"ng",
+				"ng-hide\tAngularJS"
+			],
+			[
+				"qu",
+				"queryString"
+			],
+			[
+				"Re",
+				"RemoteUrl"
+			],
+			[
+				"Ca",
+				"CategoryId"
+			],
+			[
+				"pro",
+				"prod"
+			],
+			[
+				"prod",
+				"products"
+			],
+			[
+				"ng-re",
+				"ng-repeat\tAngularJS"
+			],
+			[
+				"He",
+				"HEROES\talias"
+			],
+			[
+				"ex",
+				"export\tkeyword"
+			],
+			[
+				"For",
+				"FormsModule\talias"
+			],
+			[
+				"imp",
+				"import\tkeyword"
+			],
+			[
+				"fo",
+				"font-size\tproperty"
+			],
+			[
+				"fon",
+				"font-family\tproperty"
+			],
+			[
+				"ove",
+				"overflow-x\tproperty"
+			],
+			[
+				"baco",
+				"background-color\tproperty"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"сай",
+				"сайтмап"
+			],
+			[
+				"об",
+				"объект"
+			],
+			[
+				"St",
+				"SiteMapGenerator"
+			],
+			[
+				"tex",
+				"text-align\tproperty"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"col",
+				"color\tproperty"
+			],
+			[
+				"fl",
+				"float\tproperty"
+			],
+			[
+				"de",
+				"designsVal"
+			],
+			[
+				"itV",
+				"itemsToFilVal"
+			],
+			[
+				"ite",
+				"itemsToCatVal"
+			],
+			[
+				"c",
+				"createInsertString"
+			],
+			[
+				"it",
+				"itemsToCatVal"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git pu",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add All"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in View"
+			],
+			[
+				"open view",
+				"Terminus: Open Default Shell in View"
+			],
+			[
+				"view",
+				"Terminus: Open Default Shell in View"
+			],
+			[
+				"open",
+				"Terminus: Open Default Shell in View"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git add ",
+				"Git: Add All"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"add all",
+				"Git: Add All"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git ",
+				"Git: Init"
+			],
+			[
+				"che",
+				"Git: Checkout Tag"
+			],
+			[
+				"ch",
+				"Git: Checkout Tag"
+			],
+			[
+				"chec",
+				"Git: Checkout Tag"
+			],
+			[
+				"rese",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"check",
+				"Git: Checkout Tag"
+			],
+			[
+				"git re",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"revert",
+				"GitGutter: Revert Change to Commit"
+			],
+			[
+				"c",
+				"Git: Checkout Tag"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/WarKB/Desktop/Projects/attention_trainer/style.css",
+		"/C/Users/WarKB/Desktop/Projects/attention_trainer/script.js",
+		"/C/Users/WarKB/Desktop/Projects/attention_trainer/index.html",
+		"/C/Users/WarKB/Desktop/ап маокай.txt",
+		"/C/Users/WarKB/Desktop/projectf/index.html",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/WarKB/YandexDisk/Собеседования/c# junior developr.txt",
+		"/C/Users/WarKB/Desktop/2207.txt",
+		"/C/Users/WarKB/Desktop/c# junior developr.txt",
+		"/E/Новый текстовый документ.txt",
+		"/C/proshivka/FS458_SW17/MT6570_Android_scatter.txt",
+		"/C/Users/WarKB/Desktop/FS458/fs_458/заполняемые_поля.txt",
+		"/C/Users/WarKB/AppData/Local/Temp/Rar$DIa6224.42343/NOTICE.txt",
+		"/C/Users/WarKB/AppData/Local/Temp/Rar$DIa2088.24687/Инструкция по установке.txt",
+		"/C/Users/WarKB/AppData/Local/Temp/Rar$DIa5988.37589/Инструкция по установке.txt",
+		"/C/Users/WarKB/Desktop/инет продлевал 2207.txt",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/.git/COMMIT_EDITMSG",
+		"/C/Users/WarKB/web-desktop/js/views/scheduler.js",
+		"/C/Users/WarKB/web-desktop/js/wins.js",
+		"/C/Users/WarKB/web-desktop/index.html",
+		"/C/Users/WarKB/web-desktop/js/app.js",
+		"/C/Users/WarKB/web-desktop/libs/scheduler/dhtmlxscheduler.js",
+		"/C/Users/WarKB/web-desktop/css/styles.css",
+		"/C/Users/WarKB/web-desktop/js/data.js",
+		"/C/Users/WarKB/web-desktop/libs/gantt/dhtmlxgantt.js",
+		"/C/Users/WarKB/web-desktop/js/views/gantt.js",
+		"/C/Users/WarKB/web-desktop/js/views/winmenu.js",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/css/app.animations.css",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/app/persons-page/person-page.template.html",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/express-server.js",
+		"/C/Users/WarKB/Desktop/snakepit-game-master/snakepit-game-master/server.py",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/app/persons-page/person-page.component.js",
+		"/C/Users/WarKB/Documents/My Games/Fallout3/RendererInfo.txt",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/js/webix.trial.complete/kanban/samples/index.html",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/js/webix.trial.complete/hello.html",
+		"/C/Users/WarKB/Documents/My Games/Fallout3/FALLOUT.INI",
+		"/F/readme.txt",
+		"/E/my project/[project} — копия (10).html",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/app/log-page/log-page.template.html",
+		"/C/Users/WarKB/Desktop/snakepit-game-master/snakepit-game-master/simple/game_loop_basic.py",
+		"/C/Users/WarKB/Desktop/Plants vs Zombies Русская Версия/bass.dll",
+		"/C/Users/WarKB/Desktop/План.txt",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/app/index.html",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/joyride-master/joyride-master/dist/foundation.joyride.js",
+		"/C/Users/WarKB/PycharmProjects/moba/runtime.txt",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/app/app.module.js",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/static/css/persons-list.css",
+		"/C/Users/WarKB/Desktop/FarmnetTestProject/todo.todo",
+		"/C/Users/WarKB/Downloads/JetBrains WebStorm 2018.1.4/JetBrains.WebStorm.2018.1.4.Incl.KeyMaker.14TH.BIRTHDAY-DVT/install.txt",
+		"/C/Users/Wladimir/Desktop/Сакральные знания/Хоткеи.txt",
+		"/C/Users/Wladimir/Downloads/socio72/socio72/static/html/task-list.html",
+		"/C/Users/Wladimir/Documents/FarmnetTestProject/static/app/index.html",
+		"/C/Users/Wladimir/Documents/FarmnetTestProject/static/app/log-page/log-page.template.html",
+		"/C/Users/Wladimir/Documents/FarmnetTestProject/static/app/log-page/log-page.component.js",
+		"/C/Users/Wladimir/Documents/FarmnetTestProject/static/css/login-card.css",
+		"/C/Users/Wladimir/Documents/FarmnetTestProject/static/css/app.animations.css",
+		"/C/Users/Redline/Desktop/Shared/_ArticlePageLayout.cshtml",
+		"/C/Users/Redline/Desktop/Shared/_Layout.cshtml",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/express-server.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/static/app/persons-page/person-page.template.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/static/app/index.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/static/app/persons-page/person-page.component.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/README.md",
+		"/C/Users/Redline/Desktop/tmp/tmp.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/package.json",
+		"/C/Users/Redline/Desktop/same-1.2/TODO.txt",
+		"/C/Users/Redline/Desktop/same-1.2/INSTALL.txt",
+		"/C/Users/Redline/Desktop/same-1.2/README.txt",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/static/app/app.config.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/static/app/log-page/log-page.component.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/static/app/app.module.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/index.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/express-server.js",
+		"/C/Users/Redline/Desktop/tmp/tmp.js",
+		"/D/Vladimir_SpaceApp/Documents/Projects/nordic_prod/nordic/settings.py",
+		"/C/Users/Redline/Desktop/nordicInfo.txt",
+		"/C/Users/Redline/Desktop/WorkProjects/hotkeysAndTricks.md",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/server.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/log-page/log-page.component.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/log-page/log-page.module.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/persons-page/person-page.component.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/persons-page/person-page.module.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/app.config.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/persons-page/person-page.template.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/log-page/log-page.template.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/app.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/app/app.module.js",
+		"/D/YaDisk/YandexDisk/Собеседования/c# junior developr.txt",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/index.html",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/routing/index.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/script.js",
+		"/C/Users/Redline/Desktop/tmp/windowsProject/style.css",
+		"/C/Users/Redline/Documents/AngularJsTutorial/angular-phonecat/app/phone-list/phone-list.template.html",
+		"/C/backups/klimat1405.sql",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb8352.42854/sociotasks.json",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb12540.45560/sociotasks.json",
+		"/C/Users/Redline/AppData/Local/Temp/scp04343/hydrocom/Views/Categories/Index.cshtml",
+		"/C/Users/Redline/AppData/Local/Temp/scp47317/home/nordic/nordic/nordicsite/vans/models.py",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb10704.22506/sociotasks.json",
+		"/D/YaDisk/YandexDisk/socio72/sociotask.txt",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb11392.5343/sociotasks.json",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb11392.2478/sociotasks.json",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb14404.48527/tmp.py",
+		"/D/YaDisk/YandexDisk/socio72/sociotasks.json",
+		"/C/Users/Redline/AppData/Local/Temp/Rar$DIb14404.45830/tmp.py",
+		"/C/Users/Redline/Desktop/myPerfomance.json",
+		"/D/Vladimir_SpaceApp/Documents/Projects/HramPetraIPavla/hramPP/Scripts/jquery.bxslider.min.js",
+		"/C/Users/Redline/AppData/Local/Temp/scp37178/pavla-petra-hram/Views/Home/Index.cshtml",
+		"/C/Users/Redline/AppData/Local/Temp/scp38025/pavla-petra-hram/Views/Shared/_Layout.cshtml",
+		"/D/Vladimir_SpaceApp/Documents/Projects/Bekker/UI/Views/Home/Oplata.cshtml",
+		"/D/Vladimir_SpaceApp/Documents/Projects/DeliveryFM/UI/Web.config",
+		"/C/Users/Redline/AppData/Local/Temp/scp39136/MehaAfina/Web.config",
+		"/C/Users/Redline/Desktop/отсутствующие товары на климате.txt",
+		"/D/Vladimir_SpaceApp/Documents/Projects/nordic_prod/nordic/nordicsite/vans/templates/vans.html",
+		"/D/Vladimir_SpaceApp/Documents/Projects/template/UI/Web.config",
+		"/C/Users/Redline/AppData/Local/Temp/scp42100/klimatplus64ru/Web.config",
+		"/D/YaDisk/YandexDisk/socio72/tmp.py",
+		"/D/YaDisk/YandexDisk/socio72/res.txt",
+		"/D/Vladimir_SpaceApp/Documents/Projects/nordic_prod/nordic/nordicsite/vans/templates/car-model/index.html",
+		"/D/YaDisk/YandexDisk/socio72/socio_sort.py",
+		"/D/YaDisk/YandexDisk/socio72/socioapp.py",
+		"/D/YaDisk/YandexDisk/socio72/sociotask_1.txt",
+		"/C/Users/Redline/Desktop/socio72/socioapp.py",
+		"/D/YaDisk/YandexDisk/socio72/index_template.tpl",
+		"/D/YaDisk/YandexDisk/socio72/views/index.tpl",
+		"/D/YaDisk/YandexDisk/socio72/bottle.py",
+		"/D/YaDisk/YandexDisk/socio72/index.tpl",
+		"/D/YaDisk/YandexDisk/socio72/index.tpl.html"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 128.0,
+		"where_history":
+		[
+			"C:\\Users\\WarKB\\web-desktop,,-.git",
+			"C:\\Users\\Redline\\Desktop\\tmp\\windowsProject\\",
+			"D:\\largeTMP\\nordic_working\\nordicsite",
+			"D:\\largeTMP\\nordic",
+			"D:\\largeTMP\\nordicsite",
+			"D:\\Vladimir_SpaceApp\\Documents\\prj\\LearnAngular\\my-app",
+			"C:\\Users\\Redline\\Desktop\\Views",
+			"D:\\Vladimir_SpaceApp\\Documents\\Projects\\Bekker\\UI\\Views",
+			"D:\\Vladimir_SpaceApp\\Documents\\Projects\\Bekker"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"updateCounter",
+			"gameState",
+			"tryesLeft",
+			"commit",
+			"crm.png",
+			"beforeWinShow",
+			"showEmptyApp",
+			"scheduler_button",
+			"_button",
+			"img/",
+			"scheduler",
+			"scheduler_button",
+			"config.css",
+			"gantt =",
+			"gantt=",
+			"gantt =",
+			"gantt=",
+			"gantt = ",
+			"gantt",
+			"config",
+			"getPosition",
+			"wins",
+			"toolbar-bottom",
+			"webix_transparent",
+			"desktop-items",
+			"<link",
+			"<input",
+			"input type=\"text\"",
+			"query",
+			"src",
+			"button\"",
+			"<button",
+			"button",
+			"getDate",
+			"{{",
+			"}}",
+			"li",
+			"ul",
+			"// Добавляем",
+			"ng-value",
+			"checkbox",
+			"name",
+			"input",
+			"href=\"#\"",
+			"<input",
+			"let",
+			"=",
+			"pk",
+			"new_",
+			" =",
+			"new_",
+			"query",
+			"$ctrl",
+			"label><",
+			"a",
+			"</label>",
+			"t\"",
+			"phoneDetail",
+			"static",
+			"src",
+			"INSERT",
+			"'Иванович'",
+			"^",
+			"'Иванович'",
+			"'Иван'",
+			"'Иванов'",
+			"Иванов",
+			"^",
+			"\\w+",
+			"\n",
+			"                        ",
+			" ",
+			"viewport.get(0).setPointerCapture",
+			"setPointerCapture",
+			"red",
+			"\"text\": \"",
+			"^",
+			"Ваши",
+			"fucking-repeating-p-again",
+			"fucking-repeating-p-another",
+			"Чтобы",
+			"fucking-repeating-p-remake",
+			"fucking-repeating-p\"",
+			"style=\"margin-bottom: 0cm; background: transparent; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; page-break-inside: auto; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"style=\"border: 1px solid #000000; padding: 0.14cm\"",
+			"style=\"background: transparent; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; page-break-inside: auto; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"style=\"border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.14cm; padding-bottom: 0.14cm; padding-left: 0.14cm; padding-right: 0cm\"",
+			"style=\"margin-bottom: 0cm; background: transparent; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 100%; page-break-inside: auto; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"style=\"margin-bottom: 0cm; background: #ffffff; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 100%; page-break-inside: auto; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"style=\"margin-bottom: 0cm; background: transparent; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 100%; page-break-inside: auto; orphans: 0; widows: 0; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"style=\"margin-top: 0cm; margin-bottom: 0cm; font-weight: normal; line-height: 0.64cm\"",
+			"style=\"margin-left: 1.91cm; text-indent: -1.91cm; margin-bottom: 0cm; background: transparent; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 100%; page-break-inside: auto; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"fuck",
+			"align=\"left\" style=\"margin-bottom: 0cm; background: transparent; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 100%; page-break-inside: auto; text-decoration: none; page-break-before: auto; page-break-after: auto\"",
+			"'",
+			"Clims",
+			"\\n",
+			"update",
+			"Clims",
+			"0",
+			"Clims",
+			"\nunion",
+			"select * from",
+			"00",
+			"*",
+			"',",
+			"GRI",
+			"charatindex",
+			"00",
+			"='",
+			"'",
+			"1/4",
+			"Сплит",
+			"  \n",
+			"комплимент",
+			" CustomRoutes ",
+			"Тормоза TE",
+			"red",
+			"flender_docs/",
+			"red",
+			"Тормоза TE",
+			"/Content/flender_docs",
+			"'[\\w ]+'",
+			"pdf",
+			" m",
+			"Add",
+			"\"/",
+			"https"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": ".gitignore.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"logtemp",
+				"static\\app\\log-page\\log-page.template.html"
+			],
+			[
+				"percompo",
+				"static\\app\\persons-page\\person-page.component.js"
+			],
+			[
+				"exp",
+				"express-server.js"
+			],
+			[
+				"template.ht",
+				"static\\app\\persons-page\\person-page.template.html"
+			],
+			[
+				"index.htm",
+				"static\\app\\index.html"
+			],
+			[
+				"",
+				"Администратор:  "
+			],
+			[
+				"inde",
+				"app\\index.html"
+			],
+			[
+				"app/phone-list/phone-list.template.html",
+				"angular-phonecat\\app\\phone-list\\phone-list.template.html"
+			],
+			[
+				"phone-detail.component.js",
+				"angular-phonecat\\app\\phone-detail\\phone-detail.component.js"
+			],
+			[
+				"pac",
+				"angular-phonecat\\package.json"
+			],
+			[
+				"phone",
+				"angular-phonecat\\app\\phone-detail\\phone-detail.component.js"
+			],
+			[
+				"app/in",
+				"angular-phonecat\\app\\index.html"
+			],
+			[
+				"index.html",
+				"angular-phonecat\\app\\index.html"
+			],
+			[
+				"phone-list.template.html",
+				"angular-phonecat\\app\\phone-list\\phone-list.template.html"
+			],
+			[
+				"phone-list.component.spec.js",
+				"angular-phonecat\\app\\phone-list\\phone-list.component.spec.js"
+			],
+			[
+				"e2e-te",
+				"angular-phonecat\\e2e-tests\\scenarios.js"
+			],
+			[
+				"phon-li.co",
+				"angular-phonecat\\app\\phone-list\\phone-list.component.js"
+			],
+			[
+				"phon",
+				"angular-phonecat\\app\\phone-list\\phone-list.template.html"
+			],
+			[
+				"ho",
+				"C:\\Users\\Redline\\Desktop\\WorkProjects\\hotkeysAndTricks.md"
+			],
+			[
+				"phli",
+				"angular-phonecat\\app\\phone-list\\phone-list.component.js"
+			],
+			[
+				"phlico",
+				"angular-phonecat\\app\\phone-list\\phone-list.component.js"
+			],
+			[
+				"phlimo",
+				"angular-phonecat\\app\\phone-list\\phone-list.module.js"
+			],
+			[
+				"app",
+				"angular-phonecat\\app\\app.js"
+			],
+			[
+				"sty\t",
+				"my-app\\src\\styles.css"
+			],
+			[
+				"hercom",
+				"my-app\\src\\app\\heroes\\heroes.component.html"
+			],
+			[
+				"hero",
+				"my-app\\src\\app\\heroes\\heroes.component.ts"
+			],
+			[
+				"hotke",
+				"WorkProjects\\hotkeysAndTricks.md"
+			],
+			[
+				"NectaryPersonal_AjaxLoad",
+				"NectaryPersonal\\NectaryPersonal\\Scripts\\NectaryPersonal_AjaxLoad.js"
+			],
+			[
+				"hot",
+				"C:\\Users\\Redline\\Desktop\\WorkProjects\\hotkeysAndTricks.md"
+			],
+			[
+				"\t",
+				"C:\\Users\\Redline\\Desktop\\workingPlan.todo"
+			],
+			[
+				"ho\t",
+				"C:\\Users\\Redline\\Desktop\\WorkProjects\\hotkeysAndTricks.md"
+			],
+			[
+				"HO",
+				"C:\\Users\\Redline\\Desktop\\WorkProjects\\hotkeysAndTricks.md"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Wladimir\\nemo-connect\\nemo-connect.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 283.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"s",
+				"ShowLoad\tclass"
+			],
+			[
 				"cl",
 				"color"
 			],
@@ -316,10 +320,6 @@
 				"hexToTuple〔module〕"
 			],
 			[
-				"s",
-				"self"
-			],
-			[
 				"di",
 				"dir〔function〕"
 			],
@@ -477,19 +477,29 @@
 			}
 		},
 		{
-			"file": "classes/anotherStalker.py",
+			"file": "classes/pod.py",
 			"settings":
 			{
-				"buffer_size": 3109,
+				"buffer_size": 1814,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "classes/pod.py",
+			"file": "mylib/showload.py",
 			"settings":
 			{
-				"buffer_size": 1814,
+				"buffer_size": 788,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "\"\"\""
+			}
+		},
+		{
+			"file": "mylib/testShowLoad.py",
+			"settings":
+			{
+				"buffer_size": 288,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -680,12 +690,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/WarKB/YandexDisk/RiseOnTheRoadSide",
-		"/C/Users/WarKB/YandexDisk/RiseOnTheRoadSide/classes",
-		"/C/Users/WarKB/YandexDisk/RiseOnTheRoadSide/img"
+		"/C/Users/WarKB/PycharmProjects/RiseOnTheRoadSide",
+		"/C/Users/WarKB/PycharmProjects/RiseOnTheRoadSide/mylib"
 	],
 	"file_history":
 	[
+		"/C/Users/WarKB/PycharmProjects/RiseOnTheRoadSide/classes/anotherStalker.py",
 		"/C/Users/WarKB/Desktop/plan.todo",
 		"/C/Users/WarKB/Desktop/ТестовоеЗадание.txt",
 		"/C/Users/WarKB/Desktop/PersonalProjects/MySite/Требования для удаленного Django.txt",
@@ -784,7 +794,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -800,6 +810,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\t",
 			")\n",
 			"color",
 			"опыт",
@@ -823,9 +834,10 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"    ",
 			"inventoryName",
 			"",
 			" ",
@@ -841,7 +853,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -857,8 +869,8 @@
 						"selection":
 						[
 							[
-								742,
-								742
+								797,
+								797
 							]
 						],
 						"settings":
@@ -1015,208 +1027,14 @@
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 30.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "classes/anotherStalker.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1908,
-								1908
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1908,
-										1909
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1895,
-										1896
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 599.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "classes/pod.py",
 					"semi_transient": false,
 					"settings":
@@ -1228,8 +1046,8 @@
 						"selection":
 						[
 							[
-								556,
-								556
+								135,
+								135
 							]
 						],
 						"settings":
@@ -1388,10 +1206,98 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 304.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "mylib/showload.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 788,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								779,
+								775
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source, text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								}
+							],
+							"auto_name": "\"\"\"",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 96.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "mylib/testShowLoad.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 288,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source, text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1399,7 +1305,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 31.0
 	},
 	"input":
 	{
@@ -1452,7 +1358,7 @@
 	"project": "riseOnTheRoadSide.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 78.0
 	},
 	"save_all_on_build": true,
 	"select_file":

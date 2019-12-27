@@ -155,7 +155,7 @@ class Game():
                 not (pressedKeys[K_RIGHT] or pressedKeys[K_d])):
                 self.player.goLeft()
             #выход из игры
-            if pressedKeys[K_ESCAPE]:
+            if pressedKeys[K_BACKSPACE]:
                 self.running = False
             for event in pygame.event.get():
                 if event.type == QUIT:
