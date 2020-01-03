@@ -47,8 +47,8 @@ class Game():
         self.flyingTexts = [FlyingText(self.focus) for _ in range(flyingTextCount)]
         # self.flyingTexts =
         self.debugInfo = DebugInfo(self)
-        self.anotherStalkerS = tuple([AnotherStalker(self)
-            for _ in range(QUANTITY_OF_ANOTHER_STALKERS)])
+        self.anotherStalkerS = self.initAnotherStalkersNormaly()
+        #self.initAnotherStalkersNormaly()
         self.objects = (
                 self.pods,
                 self.artefacts,
@@ -61,6 +61,22 @@ class Game():
         # не узнавать её координаты через функцию
         self.objectUnderPick = None
         self.run()
+    def initAnotherStalkersNormaly(self):
+        """
+        заполняет поле сталкерами как для готовой игры
+        :return: Кортеж со всеми сталкерами
+        """
+        return tuple([AnotherStalker(self)
+               for _ in range(QUANTITY_OF_ANOTHER_STALKERS)])
+
+    def initAnotherStalkersForTestAi(self):
+        """
+        Возвращает одного сталкера, чтобы можно было тестировать ИИ
+        """
+        testStalker = AnotherStalker(self)
+        testStalker.initPoint.x = self.player.initPoint.x
+        testStalker.initPoint.y = self.player.initPoint.y
+        return (testStalker)
 
     def getObjectUnderPoint(self, point, ignoreList=[]):
         """
@@ -110,6 +126,7 @@ class Game():
         #self.player.move(dt)
         for objArr in self.objects:
             for obj in objArr:
+                print(obj)
                 obj.move(dt)
 
     def run(self):
