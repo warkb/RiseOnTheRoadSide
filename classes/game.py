@@ -47,8 +47,8 @@ class Game():
         self.flyingTexts = [FlyingText(self.focus) for _ in range(flyingTextCount)]
         # self.flyingTexts =
         self.debugInfo = DebugInfo(self)
-        self.anotherStalkerS = self.initAnotherStalkersNormaly()
-        #self.initAnotherStalkersNormaly()
+        self.anotherStalkerS = self.initAnotherStalkersForTestAi()
+        #self.initAnotherStalkersNormaly() вернуть для нормальной игры
         self.objects = (
                 self.pods,
                 self.artefacts,
@@ -76,7 +76,7 @@ class Game():
         testStalker = AnotherStalker(self)
         testStalker.initPoint.x = self.player.initPoint.x
         testStalker.initPoint.y = self.player.initPoint.y
-        return (testStalker)
+        return tuple([testStalker])
 
     def getObjectUnderPoint(self, point, ignoreList=[]):
         """

@@ -16,10 +16,12 @@ class AnotherStalker(RenderedObject):
     spread = 5 # разброс по радиусу персонажа
     padding = 10 # расстояние от края персонажа до края поверхности
     angleSpeed = 50
+    seeArtefactDistance = 500 # на этом расстоянии бот видит артефакт
     # состояния
     choiceDirectionState = 'choiceDirectionState'
     uselessWalk = 'uselessWalk'
     angleChangingStatus = 'angleChangingStatus'
+    artefactHunt = 'artefactHunt'
 
     def __init__(self, game):
         self.bornRadius = game.WIDTHSCREEN # Радиус, в котором появляются сталкеры в начале
@@ -69,6 +71,8 @@ class AnotherStalker(RenderedObject):
         newSurf = pygame.transform.rotate(self.baseSurf, self.angle + 90)
         newRect = newSurf.get_rect()
         newRect.center = self.initPoint - self.focus
+        if distanceToPoint(self.initPoint, self.nearestArtefact.initPoint) < self.seeArtefactDistance:
+            pygame.draw.circle(newSurf,(255, 0, 0), (10,10), 10)
         screen.blit(newSurf, newRect)
 
         # screen.blit(newSurf, self.initPoint - self.focus - 
@@ -84,6 +88,21 @@ class AnotherStalker(RenderedObject):
         Угол тем меньше, чем дальше персонаж от игрока. Если персонаж уже на каком-то
         расстоянии от игрока, он выбирает направление исключительно в сторону игрока.
         """
+        # охота за артефактами старт
+        # находим самый близкий артефакт
+        self.nearestArtefact = self.game.artefacts[0]
+        minDistance = distanceToPoint(self.initPoint, self.nearestArtefact)
+        for artefact in self.game.artefacts:
+            distance = distanceToPoint(self.initPoint, artefact)
+            if distance < minDistance:
+                self.nearestArtefact = artefact
+                minDistance = distance
+        # нашли самый близкий артефакт
+        # теперь проверяем, видит ли бот этот артефакт
+        if minDistance < self.seeArtefactDistance:
+            # поворачиваемся и бежим в сторону артефакта
+            pass
+        # охота за артефактами конец
         if self.state == self.uselessWalk:
             # сдвинуться
             # уменьшьть оставшееся время

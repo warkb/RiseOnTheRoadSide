@@ -17,9 +17,9 @@ class DebugInfo(RenderedObject):
 		self.color = hexToTuple('FE655B')
 
 	def draw(self, screen):
+		# рисуем FPS
 		text = self.font.render("FPS: %s" % self.fps, True, self.color)
 		screen.blit(text, (self.margin, self.margin))
-
 	def move(self, dt):
 		if dt != 0:
 			self.fps = int(1 / dt)
