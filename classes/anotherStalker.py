@@ -101,7 +101,18 @@ class AnotherStalker(RenderedObject):
         # теперь проверяем, видит ли бот этот артефакт
         if minDistance < self.seeArtefactDistance:
             # поворачиваемся и бежим в сторону артефакта
-            pass
+            self.state = self.artefactHunt
+            # если угол не совпадает - поворачиваем бота
+            angleToArtefact = getAngleFromPointToPoint(self.nearestArtefact.initPoint,
+                self.initPoint)
+            if abs(angleToArtefact - self.angle) > 1:
+                if angleToArtefact - self.angle > 0:
+                    self.angle += dt * self.angleSpeed
+                else:
+                    self.angle -= dt * self.angleSpeed
+        else:
+            if self.state == self.artefactHunt:
+                self.state = self.uselessWalk
         # охота за артефактами конец
         if self.state == self.uselessWalk:
             # сдвинуться

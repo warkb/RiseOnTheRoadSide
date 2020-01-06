@@ -2,7 +2,7 @@ from random import random
 from math import pi, cos, sin, sqrt, atan2
 
 def getRandomAngleInArea(a = 0, b = 2 * pi):
-	"""выдает случайный угол в диапазоне [a, b]"""
+	"""выдает случайное число в диапазоне [a, b]"""
 	if a == b:
 		return a
 	if a > b:
