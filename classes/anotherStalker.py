@@ -17,6 +17,7 @@ class AnotherStalker(RenderedObject):
     padding = 10 # расстояние от края персонажа до края поверхности
     angleSpeed = 50
     seeArtefactDistance = 500 # на этом расстоянии бот видит артефакт
+    pickDistance = 60 # с какого расстояния можно брать артефакт
     # состояния
     choiceDirectionState = 'choiceDirectionState'
     uselessWalk = 'uselessWalk'
@@ -110,6 +111,11 @@ class AnotherStalker(RenderedObject):
                     self.angle += dt * self.angleSpeed
                 else:
                     self.angle -= dt * self.angleSpeed
+            elif self.seeArtefactDistance > self.pickDistance:
+                # не можем дотянуться до артефакта
+                # делаем шаг вперед
+                self.makeStep(dt)
+
         else:
             if self.state == self.artefactHunt:
                 self.state = self.uselessWalk
@@ -119,12 +125,7 @@ class AnotherStalker(RenderedObject):
             # уменьшьть оставшееся время
             # если оставшееся время кончилось - меняем состояние 
             # на поворот
-            angleRad = self.angle * pi / 180
-            m = self.velocity * dt
-
-            self.initPoint.x += -cos(angleRad) * m
-            # print("x %s " % self.initPoint.x)
-            self.initPoint.y += sin(angleRad) * m
+            self.makeStep(dt)
             # print("y %s " % self.initPoint.y)
             self.walkTime -= dt
             if self.walkTime < 0:
@@ -143,3 +144,15 @@ class AnotherStalker(RenderedObject):
             self.angle += dt * self.dAngle * self.angleSpeed
             if abs(self.angle - self.newAngle) < 3:
                 self.state = self.uselessWalk
+    def makeStep(self, dt):
+        """
+        Продвигаем персонажа вперед по курсу
+        :param dt: Время между кадрами
+        :return:
+        """
+        angleRad = self.angle * pi / 180
+        m = self.velocity * dt
+
+        self.initPoint.x += -cos(angleRad) * m
+        # print("x %s " % self.initPoint.x)
+        self.initPoint.y += sin(angleRad) * m
