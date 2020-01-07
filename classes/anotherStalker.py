@@ -35,9 +35,8 @@ class AnotherStalker(RenderedObject):
         self.focus = game.focus
         # в какую сторону смотрит персонаж
         self.angle = randomAngle * 180 / pi
-        print(self.angle)
         #self.angle = 180
-
+        self.score = 0 # счет
         # его цвет
         self.color = tuple([randint(0, 25) * 10 for _ in range(3)])
 
@@ -111,10 +110,15 @@ class AnotherStalker(RenderedObject):
                     self.angle += dt * self.angleSpeed
                 else:
                     self.angle -= dt * self.angleSpeed
-            elif self.seeArtefactDistance > self.pickDistance:
+            if minDistance > self.pickDistance:
                 # не можем дотянуться до артефакта
                 # делаем шаг вперед
                 self.makeStep(dt)
+            else:
+                # забираем артефакт
+                print('hop')
+                self.score += self.nearestArtefact.price
+                self.nearestArtefact.pick()
 
         else:
             if self.state == self.artefactHunt:

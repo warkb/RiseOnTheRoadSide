@@ -47,8 +47,8 @@ class Game():
         self.flyingTexts = [FlyingText(self.focus) for _ in range(flyingTextCount)]
         # self.flyingTexts =
         self.debugInfo = DebugInfo(self)
-        self.anotherStalkerS = self.initAnotherStalkersForTestAi()
-        #self.initAnotherStalkersNormaly() вернуть для нормальной игры
+        # self.anotherStalkerS = self.initAnotherStalkersForTestAi()
+        self.anotherStalkerS = self.initAnotherStalkersNormaly() #вернуть для нормальной игры
         self.objects = (
                 self.pods,
                 self.artefacts,
@@ -126,7 +126,6 @@ class Game():
         #self.player.move(dt)
         for objArr in self.objects:
             for obj in objArr:
-                print(obj)
                 obj.move(dt)
 
     def run(self):
