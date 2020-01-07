@@ -103,8 +103,8 @@ class AnotherStalker(RenderedObject):
             # поворачиваемся и бежим в сторону артефакта
             self.state = self.artefactHunt
             # если угол не совпадает - поворачиваем бота
-            angleToArtefact = getAngleFromPointToPoint(self.nearestArtefact.initPoint,
-                self.initPoint)
+            angleToArtefact = getAngleFromPointToPoint(self.initPoint,
+                self.nearestArtefact.initPoint)
             if abs(angleToArtefact - self.angle) > 1:
                 if angleToArtefact - self.angle > 0:
                     self.angle += dt * self.angleSpeed
